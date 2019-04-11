@@ -29,7 +29,7 @@ import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 import java.util.ArrayList;
 
 import static com.smartloan.smtrick.smart_loan.constants.Constant.GLOBAL_DATE_FORMATE;
-import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_SENT;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_GENERATED;
 
 public class InvoiceFragment extends Fragment {
     InvoiceAdapter invoiceAdapter;
@@ -64,6 +64,7 @@ public class InvoiceFragment extends Fragment {
             fragmentInvoiceBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
             fragmentInvoiceBinding.recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
                     DividerItemDecoration.VERTICAL));
+
             getInvoices();
         }
         return fragmentInvoiceBinding.getRoot();
@@ -77,6 +78,7 @@ public class InvoiceFragment extends Fragment {
         fragmentInvoiceBinding.recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), fragmentInvoiceBinding.recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
+
                 Invoice invoice = getModel(position);
                 showInvoiceDialog(invoice);
             }
@@ -96,6 +98,7 @@ public class InvoiceFragment extends Fragment {
                 if (object != null) {
                     invoiceArrayList = (ArrayList<Invoice>) object;
                     filterList(invoiceArrayList);
+
                 }
                 progressDialogClass.dismissDialog();
             }
@@ -112,7 +115,7 @@ public class InvoiceFragment extends Fragment {
         ArrayList<Invoice> arrayList = new ArrayList<>();
         if (invoiceArrayList != null) {
             for (Invoice invoice : invoiceArrayList) {
-                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_SENT))
+                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_GENERATED))
                     arrayList.add(invoice);
             }
         }
@@ -138,31 +141,26 @@ public class InvoiceFragment extends Fragment {
         invoicedialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.invoicedialog, null, false);
         dialog.setContentView(invoicedialogBinding.getRoot());
         dialog.setTitle("Title...");
-        invoicedialogBinding.txtidvalue.setText(invoice.getLeedId());
-        invoicedialogBinding.txtcnamevalue.setText(invoice.getCustomerName());
-        invoicedialogBinding.txtbankvalue.setText(invoice.getBankName());
         invoicedialogBinding.txtleadidvalue.setText(invoice.getLeedNumber());
-        invoicedialogBinding.txtcommisionvalue.setText(invoice.getCommission());
-        invoicedialogBinding.txtloanammountvalue.setText(invoice.getLoanAmount());
-        invoicedialogBinding.txtloantypevalue.setText(invoice.getLoanType());
-        invoicedialogBinding.txtloandissammount.setText(invoice.getDisbursment());
-        invoicedialogBinding.txtgstvalue.setText(invoice.getGst());
-        invoicedialogBinding.textInvoiceNumber.setText(invoice.getInvoiceNumber());
-        invoicedialogBinding.txtidvalue.setText(Utility.convertMilliSecondsToFormatedDate(invoice.getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE));
-        invoicedialogBinding.dialogButtonaccept.setVisibility(View.VISIBLE);
-        invoicedialogBinding.dialogButtonreject.setVisibility(View.VISIBLE);
+        invoicedialogBinding.txtcnamevalue.setText(invoice.getCustomerName());
+        invoicedialogBinding.txtccontactvalue.setText(invoice.getMobileNumber());
+        invoicedialogBinding.txtcaddressvalue.setText(invoice.getAddress());
+        invoicedialogBinding.txtloantyprvalue.setText(invoice.getLoanType());
+        invoicedialogBinding.txtdatevalue.setText(Utility.convertMilliSecondsToFormatedDate(invoice.getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE));
+
         invoicedialogBinding.dialogButtonaccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialog.dismiss();
             }
         });
-        invoicedialogBinding.dialogButtonreject.setOnClickListener(new View.OnClickListener() {
+       /* invoicedialogBinding.dialogButtonreject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
-        });
+        });*/
         dialog.show();
     }
 }

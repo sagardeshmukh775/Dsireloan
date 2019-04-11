@@ -5,9 +5,9 @@ import android.content.Context;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
-import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.callback.CallBack;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
+import com.smartloan.smtrick.smart_loan.models.Invoice;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan.repository.FirebaseTemplateRepository;
 import com.smartloan.smtrick.smart_loan.repository.LeedRepository;
@@ -44,8 +44,9 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
         });
     }
 
+
     @Override
-    public void readLeedsByUserId(final Context context, String userId, final CallBack callBack) {
+    public void readLeedsByUserIdReport(final Context context, String userId, final CallBack callBack) {
         final Query query = Constant.LEEDS_TABLE_REF.orderByChild("createdBy").equalTo(userId);
         fireBaseNotifyChange(query, new CallBack() {
             @Override
@@ -59,7 +60,7 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
                             LeedsModel leedsModel = suggestionSnapshot.getValue(LeedsModel.class);
                             if (colorCount % 5 == 0)
                                 colorCount = 0;
-                            setColor(context, leedsModel, colorCount);
+                           // setColor(context, leedsModel, colorCount);
                             colorCount++;
                             leedsModelArrayList.add(leedsModel);
                         }
@@ -77,28 +78,7 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
         });
     }
 
-    private void setColor(final Context context, LeedsModel leedsModel, int count) {
-        switch (count) {
-            case 0:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.hederbackground));
-                break;
-            case 1:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.yello));
-                break;
-            case 2:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.red));
-                break;
-            case 3:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.blue));
-                break;
-            case 4:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.green));
-                break;
-            default:
-                leedsModel.setColorCode(context.getResources().getColor(R.color.hederbackground));
-                break;
-        }
-    }
+
 
     @Override
     public void createLeed(LeedsModel leedsModel, final CallBack callBack) {
@@ -115,6 +95,9 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
             }
         });
     }
+
+
+
 
     @Override
     public void deleteLeed(String leedId, CallBack callback) {
@@ -138,29 +121,25 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
         });
     }
 
-    @Override
-    public void updateLeedDocuments(String leedId, Map leedMap, final CallBack callBack) {
-        final DatabaseReference databaseReference = Constant.LEEDS_TABLE_REF.child(leedId).child("documentImages");
-        fireBaseUpdateChildren(databaseReference, leedMap, new CallBack() {
+
+    public void readLeedsByStatus(String status, final CallBack callBack) {
+        final Query query = Constant.LEEDS_TABLE_REF.orderByChild("status").equalTo(status);
+        fireBaseNotifyChange(query, new CallBack() {
             @Override
             public void onSuccess(Object object) {
-                callBack.onSuccess(object);
-            }
-
-            @Override
-            public void onError(Object object) {
-                callBack.onError(object);
-            }
-        });
-    }
-
-    @Override
-    public void updateLeedHistory(String leedId, Map leedMap, final CallBack callBack) {
-        final DatabaseReference databaseReference = Constant.LEEDS_TABLE_REF.child(leedId).child("history");
-        fireBaseUpdateChildren(databaseReference, leedMap, new CallBack() {
-            @Override
-            public void onSuccess(Object object) {
-                callBack.onSuccess(object);
+                if (object != null) {
+                    DataSnapshot dataSnapshot = (DataSnapshot) object;
+                    if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
+                        ArrayList<Invoice> leedsModelArrayList = new ArrayList<>();
+                        for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
+                            Invoice leedsModel = suggestionSnapshot.getValue(Invoice.class);
+                            leedsModelArrayList.add(leedsModel);
+                        }
+                        callBack.onSuccess(leedsModelArrayList);
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
             }
 
             @Override
@@ -194,4 +173,17 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
             }
         });
     }
+
+
+    @Override
+    public void updateLeedDocuments(String leedId, Map leedMap, CallBack callback) {
+
+    }
+
+    @Override
+    public void updateLeedHistory(String leedId, Map leedMap, CallBack callback) {
+
+    }
+
+
 }

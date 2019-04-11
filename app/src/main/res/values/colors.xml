@@ -19,10 +19,10 @@
     <color name="yello">#F4B400</color>
     <color name="green">#0F9D58</color>
     <color name="black_overlay">#66000000</color>
-
+    <color name="buttoncolour">#808080</color>
     <color name="darkgraycolor">#848484</color>
     <color name="graycolor">#d3d3d3</color>
-    <item type="color" name="hederbackground">#594691</item>
+    <item type="color" name="hederbackground">#ff8c00</item>
     <item type="color" name="whitetextcolor">#000000</item>
     <item type="color" name="whiteheadercolor">#ffffff</item>
     <item type="color" name="hinttextcolor">#c3c3c3</item>
@@ -34,4 +34,10 @@
     <item type="color" name="light_white">#76ffffff</item>
     <item type="color" name="transprant_color">#00000000</item>
     <item type="color" name="background_color">#2bf5dea8</item>
+
+
+    <color name="page_indicator_default_color">#c3c3c3</color>
+    <color name="page_indicator_selected_color">#ff8c00</color>
+
+    <color name="btn_logut_bg">#ff6861</color>
 </resources>

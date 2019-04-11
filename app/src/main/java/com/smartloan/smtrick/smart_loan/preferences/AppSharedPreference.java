@@ -32,6 +32,20 @@ public class AppSharedPreference {
     private String AGENT_ID = "AGENT_ID";
 
 
+    private String FHATHERNAME = "FHATHERNAME";
+    private String CITY = "CITY";
+    private String STATE = "STATE";
+    private String BIRTHDATE = "BIRTHDATE";
+    private String PINCODE = "PINCODE";
+    private String ACCOUNTNAME = "ACCOUNTNAME";
+    private String BANK = "BANK";
+    private String ACCOUNTTYPE = "ACCOUNTTYPE";
+    private String ACCOUNTNO = "ACCOUNTNO";
+    private String PAN = "PAN";
+    private String BRANCH = "BRANCH";
+    private String IFSC = "IFSC";
+
+
     public AppSharedPreference(Context context) {
         sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         this.context = context;
@@ -66,7 +80,7 @@ public class AppSharedPreference {
                 editor.putString(GENDER, (user.getGender()));
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
-        }
+            }
         editor.apply();
     }
 

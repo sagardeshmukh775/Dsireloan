@@ -31,5 +31,7 @@ public interface UserRepository {
 
     void readUserByUserId(final String regId, final CallBack callBack);
 
+    void readUserData(final String id, final CallBack callBack);
+
     void setDataChangeListnerOnUserLogin(final String regId, final CallBack callback);
 }

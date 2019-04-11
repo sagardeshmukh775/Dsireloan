@@ -655,8 +655,11 @@ public class CropImageView extends FrameLayout {
     /**
      * Gets the cropped image based on the current crop window.<br>
      * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
+     * @param cropShape
+     * @param reqHeight
+     * @param i
      */
-    public void getCroppedImageAsync() {
+    public void getCroppedImageAsync(CropShape cropShape, int reqHeight, int i) {
         getCroppedImageAsync(0, 0, RequestSizeOptions.NONE);
     }
 
@@ -752,7 +755,7 @@ public class CropImageView extends FrameLayout {
     }
 
     /**
-     * Set the callback to be invoked when image async cropping image ({@link #getCroppedImageAsync()} or
+     * Set the callback to be invoked when image async cropping image ({@link #getCroppedImageAsync(CropShape, int, int)} or
      * {@link #saveCroppedImageAsync(Uri)}) is complete (successful or failed).
      */
     public void setOnCropImageCompleteListener(OnCropImageCompleteListener listener) {
@@ -760,7 +763,7 @@ public class CropImageView extends FrameLayout {
     }
 
     /**
-     * Set the callback to be invoked when image async get cropping image ({@link #getCroppedImageAsync()})
+     * Set the callback to be invoked when image async get cropping image ({@link #getCroppedImageAsync(CropShape, int, int)})
      * is complete (successful or failed).
      *
      * @deprecated use {@link #setOnCropImageCompleteListener(OnCropImageCompleteListener)}.
@@ -945,7 +948,7 @@ public class CropImageView extends FrameLayout {
     }
 
     /**
-     * On complete of the async bitmap cropping by {@link #getCroppedImageAsync()} call listener if set.
+     * On complete of the async bitmap cropping by {@link #getCroppedImageAsync(CropShape, int, int)} call listener if set.
      *
      * @param result the result of bitmap cropping
      */

@@ -26,14 +26,14 @@ public class InvoicesTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (mListener != null) {
-            mListener.onFragmentInteraction("Invoices");
+            mListener.onFragmentInteraction("Leeds");
         }
         View view = inflater.inflate(R.layout.view_pager_tab_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragement(new InvoiceFragment(), "New");
+        viewPagerAdapter.addFragement(new InvoiceFragment(), "Generated");
+        viewPagerAdapter.addFragement(new PaidInvoiceFragment(), "Submited");
         viewPagerAdapter.addFragement(new ApprovedInvoiceFragment(), "Approved");
-        viewPagerAdapter.addFragement(new PaidInvoiceFragment(), "Paid");
         viewPagerAdapter.addFragement(new RejectedInvoiceFragment(), "Rejected");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
@@ -47,7 +47,8 @@ public class InvoicesTabFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-        } else {
+        } else
+            {
             // NOTE: This is the part that usually gives you the error
             throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }

@@ -96,7 +96,7 @@ public class Fragment_Reports extends Fragment {
 
     private void getteLeed() {
         progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-        leedRepository.readLeedsByUserId(getActivity(),appSharedPreference.getUserId(), new CallBack() {
+        leedRepository.readLeedsByUserIdReport(getActivity(),appSharedPreference.getUserId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {
@@ -148,12 +148,12 @@ public class Fragment_Reports extends Fragment {
             fragmentReportBinding.textViewTotalLeadsCount.setText(String.valueOf(leedsModelArrayList.size()));
             fragmentReportBinding.textViewApprovedLeadsCount.setText(String.valueOf(approvedCount));
             fragmentReportBinding.textViewRejectedLeadsCount.setText(String.valueOf(rejectedCount));
-            fragmentReportBinding.textViewPayoutAmount.setText(String.valueOf(totalPayout));
+           // fragmentReportBinding.textViewPayoutAmount.setText(String.valueOf(totalPayout));
         } else {
             fragmentReportBinding.textViewTotalLeadsCount.setText("0");
             fragmentReportBinding.textViewApprovedLeadsCount.setText("0");
             fragmentReportBinding.textViewRejectedLeadsCount.setText("0");
-            fragmentReportBinding.textViewPayoutAmount.setText("0.0");
+            //fragmentReportBinding.textViewPayoutAmount.setText("0.0");
         }
     }
 

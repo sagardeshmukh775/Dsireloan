@@ -3,8 +3,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#ffffff"
-    >
+    android:background="#ffffff">
+
+    <ScrollView
+        android:id="@+id/scrollviewrightleft"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/white"
+            android:weightSum="100"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="3dp"
+                android:layout_weight="15"
+                android:weightSum="20"
+                android:orientation="vertical">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_weight="5"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/SliderDots"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="15"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:orientation="horizontal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="28"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_pl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:padding="5dp"
+                   android:drawableTop="@drawable/ic_action_good"
+                    android:text="Personal Loan"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_hl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:drawableTop="@drawable/ic_action_good"
+                    android:padding="5dp"
+                    android:text="Home Loan"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="28"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_ml"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:drawableTop="@drawable/ic_action_discard"
+                    android:padding="5dp"
+                    android:text="Morgage Loan"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_tp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:drawableTop="@drawable/ic_action_discard"
+                    android:padding="5dp"
+                    android:text="Top Up"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="28"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_bt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:drawableTop="@drawable/ic_action_good"
+                    android:padding="5dp"
+                    android:text="Balance Transfer"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_dl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="2.5dp"
+                    android:layout_weight="50"
+                    android:background="@color/hederbackground"
+                    android:drawableTop="@drawable/ic_action_good"
+                    android:padding="5dp"
+                    android:text="Doctor Loan"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </FrameLayout>

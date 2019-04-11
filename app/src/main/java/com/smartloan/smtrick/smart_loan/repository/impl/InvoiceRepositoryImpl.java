@@ -1,11 +1,15 @@
 package com.smartloan.smtrick.smart_loan.repository.impl;
 
+import android.content.Context;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.smartloan.smtrick.smart_loan.callback.CallBack;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.models.Invoice;
+import com.smartloan.smtrick.smart_loan.models.LeedsModel;
+import com.smartloan.smtrick.smart_loan.models.User;
 import com.smartloan.smtrick.smart_loan.repository.FirebaseTemplateRepository;
 import com.smartloan.smtrick.smart_loan.repository.InvoiceRepository;
 
@@ -26,6 +30,34 @@ public class InvoiceRepositoryImpl extends FirebaseTemplateRepository implements
                         ArrayList<Invoice> invoiceArrayList = new ArrayList<>();
                         for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
                             Invoice invoice = suggestionSnapshot.getValue(Invoice.class);
+                            invoiceArrayList.add(invoice);
+                        }
+                        callBack.onSuccess(invoiceArrayList);
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
+
+    @Override
+    public void readAllusers(final CallBack callBack) {
+        final Query query = Constant.USER_TABLE_REF;
+        fireBaseNotifyChange(query, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    DataSnapshot dataSnapshot = (DataSnapshot) object;
+                    if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
+                        ArrayList<User> invoiceArrayList = new ArrayList<>();
+                        for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
+                            User invoice = suggestionSnapshot.getValue(User.class);
                             invoiceArrayList.add(invoice);
                         }
                         callBack.onSuccess(invoiceArrayList);
@@ -69,10 +101,64 @@ public class InvoiceRepositoryImpl extends FirebaseTemplateRepository implements
             }
         });
     }
+    @Override
+    public void readInvoicesByAgentId1(String agentId, final CallBack callBack) {
+        final Query query = Constant.INVOICE_TABLE_REF.orderByChild("agentId").equalTo(agentId);
+        fireBaseNotifyChange(query, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    DataSnapshot dataSnapshot = (DataSnapshot) object;
+                    if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
+                        ArrayList<Invoice> invoiceArrayList = new ArrayList<>();
+                        for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
+                            Invoice invoice = suggestionSnapshot.getValue(Invoice.class);
+                            invoiceArrayList.add(invoice);
+                        }
+                        callBack.onSuccess(invoiceArrayList);
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
+    @Override
+    public void readallleadsadmin(String agentId, final CallBack callBack) {
+        final Query query = Constant.INVOICE_TABLE_REF.orderByChild("agentId").equalTo(agentId);
+        fireBaseNotifyChange(query, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    DataSnapshot dataSnapshot = (DataSnapshot) object;
+                    if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
+                        ArrayList<LeedsModel> invoiceArrayList = new ArrayList<>();
+                        for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
+                            LeedsModel invoice = suggestionSnapshot.getValue(LeedsModel.class);
+                            invoiceArrayList.add(invoice);
+                        }
+                        callBack.onSuccess(invoiceArrayList);
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
 
     @Override
     public void readInvoicesByUserId(String userId, final CallBack callBack) {
-        final Query query = Constant.INVOICE_TABLE_REF.orderByChild("agentUserId").equalTo(userId);
+        final Query query = Constant.LEEDS_TABLE_REF.orderByChild("createdBy").equalTo(userId);
         fireBaseNotifyChange(query, new CallBack() {
             @Override
             public void onSuccess(Object object) {
@@ -98,9 +184,42 @@ public class InvoiceRepositoryImpl extends FirebaseTemplateRepository implements
         });
     }
 
+
+    public void readLeedsByUserIdReports(final Context context, String userId, final CallBack callBack) {
+        final Query query = Constant.LEEDS_TABLE_REF.orderByChild("createdBy").equalTo(userId);
+        fireBaseNotifyChange(query, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    DataSnapshot dataSnapshot = (DataSnapshot) object;
+                    if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
+                        ArrayList<LeedsModel> leedsModelArrayList = new ArrayList<>();
+                        int colorCount = 0;
+                        for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
+                            LeedsModel leedsModel = suggestionSnapshot.getValue(LeedsModel.class);
+                            if (colorCount % 5 == 0)
+                                colorCount = 0;
+                           // setColor(context, leedsModel, colorCount);
+                            colorCount++;
+                            leedsModelArrayList.add(leedsModel);
+                        }
+                        callBack.onSuccess(leedsModelArrayList);
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
+
     @Override
     public void createInvoice(Invoice invoice, final CallBack callBack) {
-        DatabaseReference databaseReference = Constant.INVOICE_TABLE_REF.child(invoice.getInvoiceId());
+        DatabaseReference databaseReference = Constant.INVOICE_TABLE_REF.child(invoice.getLeedId());
         fireBaseCreate(databaseReference, invoice, new CallBack() {
             @Override
             public void onSuccess(Object object) {
@@ -135,6 +254,25 @@ public class InvoiceRepositoryImpl extends FirebaseTemplateRepository implements
             }
         });
     }
+
+    @Override
+    public void updateLeed(String leedId, Map leedMap, final CallBack callBack) {
+        final DatabaseReference databaseReference = Constant.LEEDS_TABLE_REF.child(leedId);
+        fireBaseUpdateChildren(databaseReference, leedMap, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                callBack.onSuccess(object);
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
+
+
+
 
     @Override
     public void readInvoiceByInvoiceId(String invoiceId, final CallBack callBack) {

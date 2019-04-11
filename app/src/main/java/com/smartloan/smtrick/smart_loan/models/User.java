@@ -29,9 +29,121 @@ public class User implements Serializable {
     private String gender;
     private String agentId;
 
+    private String father="";
+    private String city="";
+    private String state="";
+    private String birthdate="";
+    private String pincode="";
+    private String accountname="";
+    private String bank="";
+    private String accounttype="";
+    private String accountno="";
+    private String pan="";
+    private String branch="";
+    private String ifsc="";
+    private String altmobileno="";
+
     //empty constructor is neaded
     public User() {
     }
+
+
+    public void setAltmobileno(String altmobileno) {
+        this.altmobileno = altmobileno;
+    }
+    public String getAltmobileno() {
+        return altmobileno;
+    }
+
+    public void setIfsc(String ifsc) {
+        this.ifsc = ifsc;
+    }
+    public String getIfsc() {
+        return ifsc;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setPan(String pan) {
+        this.pan = pan;
+    }
+    public String getPan() {
+        return pan;
+    }
+
+    public void setAccountno(String accountno) {
+        this.accountno = accountno;
+    }
+    public String getAccountno() {
+        return accountno;
+    }
+
+    public void setAccounttype(String accounttype) {
+        this.accounttype = accounttype;
+    }
+    public String getAccounttype() {
+        return accounttype;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+    public String getBank() {
+        return bank;
+    }
+
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
+    }
+    public String getAccountname() {
+        return accountname;
+    }
+
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+    public String getPincode() {
+        return pincode;
+    }
+
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+    public String getState() {
+        return state;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public String getCity() {
+        return city;
+    }
+
+    public void setFather(String father) {
+        this.father = father;
+    }
+    public String getFather() {
+        return father;
+    }
+
+
+
+
 
     @Exclude
     public Long getCreatedDateTimeLong() {
@@ -227,8 +339,22 @@ public class User implements Serializable {
         result.put("address", address);
         result.put("gender", gender);
         result.put("agentId", agentId);
+        result.put("father", father);
+        result.put("city", city);
+        result.put("state", state);
+        result.put("birthdate", birthdate);
+        result.put("pincode", pincode);
+        result.put("accountname", accountname);
+        result.put("bank", bank);
+        result.put("accounttype", accounttype);
+        result.put("accountno", accountno);
+        result.put("pan", pan);
+        result.put("branch", branch);
+        result.put("ifsc", ifsc);
+        result.put("altmobileno", altmobileno);
         return result;
-    }
+
+        }
 
     @Exclude
     public Map<String, Object> getUpdateUserMap() {
@@ -241,6 +367,19 @@ public class User implements Serializable {
         result.put("gender", gender);
         result.put("userProfileImageLarge", userProfileImageLarge);
         result.put("userProfileImageSmall", userProfileImageSmall);
+        result.put("father", father);
+        result.put("city", city);
+        result.put("state", state);
+        result.put("birthdate", birthdate);
+        result.put("pincode", pincode);
+        result.put("accountname", accountname);
+        result.put("bank", bank);
+        result.put("accounttype", accounttype);
+        result.put("accountno", accountno);
+        result.put("pan", pan);
+        result.put("branch", branch);
+        result.put("ifsc", ifsc);
+        result.put("altmobileno", altmobileno);
         return result;
     }
 }

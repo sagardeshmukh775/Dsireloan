@@ -29,14 +29,12 @@ import com.smartloan.smtrick.smart_loan.utilities.FileUtils;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
+//import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.InputStream;
 import java.util.HashMap;
 
-import static com.smartloan.smtrick.smart_loan.constants.Constant.FEMALE;
-import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.RESULT_CODE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_PATH;
 
@@ -48,6 +46,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
+    User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
         progressDialogClass = new ProgressDialogClass(this);
         userRepository = new UserRepositoryImpl(this);
         setToolBar();
-        setProfileData();
+        readUserData(appSharedPreference.getUserId());
+//        setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
         onClickCancelProfile();
@@ -82,20 +83,71 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void setProfileData() {
-        activityUpdateProfileBinding.edittextname.setText(appSharedPreference.getUserName());
-        activityUpdateProfileBinding.edittextaddress.setText(appSharedPreference.getAddress());
-        activityUpdateProfileBinding.edittextmobile.setText(appSharedPreference.getMobileNo());
-        activityUpdateProfileBinding.edittextemailid.setText(appSharedPreference.getEmaiId());
-        profileImage = appSharedPreference.getProfileLargeImage();
-        if (appSharedPreference.getGender().equalsIgnoreCase(MALE))
-            activityUpdateProfileBinding.radiomale.setChecked(true);
-        else
-            activityUpdateProfileBinding.radiofemale.setChecked(true);
-        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(activityUpdateProfileBinding.ivProfile);
-            activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
-        } else
-            activityUpdateProfileBinding.ivProfile.setImageResource(R.drawable.dummy_user_profile);
+
+
+            try {
+
+                if (appSharedPreference.getUserName() != null) {
+                    activityUpdateProfileBinding.edittextname.setText(appSharedPreference.getUserName());
+                }
+                if (appSharedPreference.getAddress() != null) {
+                    activityUpdateProfileBinding.edittextaddress.setText(appSharedPreference.getAddress());
+                }
+                if (appSharedPreference.getMobileNo() != null) {
+                    activityUpdateProfileBinding.edittextmobile.setText(appSharedPreference.getMobileNo());
+                }
+                if (appSharedPreference.getEmaiId() != null) {
+                    activityUpdateProfileBinding.edittextemailid.setText(appSharedPreference.getEmaiId());
+                }
+                if (user.getAltmobileno() != null) {
+                    activityUpdateProfileBinding.edittextaltmobilenumber.setText(user.getAltmobileno());
+                }
+                if (user.getFather() != null) {
+                    activityUpdateProfileBinding.edittextfathersname.setText(user.getFather());
+                }
+                if (user.getCity() != null) {
+                    activityUpdateProfileBinding.edittexcity.setText(user.getCity());
+                }
+                if (user.getState() != null) {
+                    activityUpdateProfileBinding.edittextstate.setText(user.getState());
+                }
+                if (user.getState() != null) {
+                    activityUpdateProfileBinding.edittextbirthdate.setText(user.getBirthdate());
+                }
+                if (user.getPincode() != null) {
+                    activityUpdateProfileBinding.edittextpincode.setText(user.getPincode());
+                }
+                if (user.getAccountname() != null) {
+                    activityUpdateProfileBinding.edittextaccountname.setText(user.getAccountname());
+                }
+                if (user.getBank() != null) {
+                    activityUpdateProfileBinding.edittextbank.setText(user.getBank());
+                }
+                if (user.getAccounttype() != null) {
+                    activityUpdateProfileBinding.edittextaccounttype.setText(user.getAccounttype());
+                }
+                if (user.getAccountno() != null) {
+                    activityUpdateProfileBinding.edittextaccountnumber.setText(user.getAccountno());
+                }
+                if (user.getPan() != null) {
+                    activityUpdateProfileBinding.edittextpan.setText(user.getPan());
+                }
+                if (user.getBranch() != null) {
+                    activityUpdateProfileBinding.edittextbranch.setText(user.getBranch());
+                }
+                if (user.getIfsc() != null) {
+                    activityUpdateProfileBinding.edittextifsc.setText(user.getIfsc());
+
+                    // profileImage = appSharedPreference.getProfileLargeImage();
+                }
+
+                if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+                    Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(activityUpdateProfileBinding.ivProfile);
+                    activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
+                } else
+                    activityUpdateProfileBinding.ivProfile.setImageResource(R.drawable.dummy_user_profile);
+            } catch (Exception e) {
+            }
     }
 
     private void setUpdateClickListner() {
@@ -119,12 +171,23 @@ public class UpdateProfileActivity extends AppCompatActivity {
         user.setMobileNumber(activityUpdateProfileBinding.edittextmobile.getText().toString());
         user.setAddress(activityUpdateProfileBinding.edittextaddress.getText().toString());
         user.setEmail(activityUpdateProfileBinding.edittextemailid.getText().toString());
-        user.setUserProfileImageLarge(profileImage);
-        user.setUserProfileImageSmall(profileImage);
-        if (activityUpdateProfileBinding.radiomale.isChecked())
-            user.setGender(MALE);
-        else
-            user.setGender(FEMALE);
+        user.setAltmobileno(activityUpdateProfileBinding.edittextaltmobilenumber.getText().toString());
+        user.setFather(activityUpdateProfileBinding.edittextfathersname.getText().toString());
+        user.setCity(activityUpdateProfileBinding.edittexcity.getText().toString());
+        user.setState(activityUpdateProfileBinding.edittextstate.getText().toString());
+        user.setBirthdate(activityUpdateProfileBinding.edittextbirthdate.getText().toString());
+        user.setPincode(activityUpdateProfileBinding.edittextpincode.getText().toString());
+        user.setAccountname(activityUpdateProfileBinding.edittextaccountname.getText().toString());
+        user.setBank(activityUpdateProfileBinding.edittextbank.getText().toString());
+        user.setAccounttype(activityUpdateProfileBinding.edittextaccounttype.getText().toString());
+        user.setAccountno(activityUpdateProfileBinding.edittextaccountnumber.getText().toString());
+        user.setPan(activityUpdateProfileBinding.edittextpan.getText().toString());
+        user.setBranch(activityUpdateProfileBinding.edittextbranch.getText().toString());
+        user.setIfsc(activityUpdateProfileBinding.edittextifsc.getText().toString());
+
+        // user.setUserProfileImageLarge(profileImage);
+        //user.setUserProfileImageSmall(profileImage);
+
         return user;
     }
 
@@ -187,7 +250,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         activityUpdateProfileBinding.ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startCropImageActivity();
+               // startCropImageActivity();
             }
         });
     }
@@ -206,45 +269,45 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     //Start crop image activity for the given image.
-    private void startCropImageActivity() {
-        try {
-            CropImage.activity(null)
-                    .setGuidelines(CropImageView.Guidelines.ON)
-                    .setMultiTouchEnabled(true)
-                    .start(this);
-        } catch (Exception e) {
-            ExceptionUtil.logException(e);
-        }
-    }
-
-    public void onActivityResult(int requestCode, int resultCode,
-                                 Intent imageData) {
-        super.onActivityResult(requestCode, resultCode, imageData);
-        try {
-            switch (requestCode) {
-                case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                    CropImage.ActivityResult result = CropImage.getActivityResult(imageData);
-                    if (resultCode == RESULT_OK) {
-                        if (imageData != null) {
-                            Bundle extras = imageData.getExtras();
-                            if (extras != null) {
-                                Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                                profileUri = result.getUri();
-                                activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
-                                if (bitmapImg != null)
-                                    activityUpdateProfileBinding.ivProfile.setImageBitmap(bitmapImg);
-                                compressBitmap(profileUri);
-                            }
-                        }
-                    } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                        Utility.showMessage(this, "Cropping failed: " + result.getError());
-                    }
-                    break;
-            }
-        } catch (Exception e) {
-            ExceptionUtil.logException(e);
-        }
-    }
+//    private void startCropImageActivity() {
+//        try {
+//            CropImage.activity(null)
+//                    .setGuidelines(CropImageView.Guidelines.ON)
+//                    .setMultiTouchEnabled(true)
+//                    .start(this);
+//        } catch (Exception e) {
+//            ExceptionUtil.logException(e);
+//        }
+//    }
+//
+//    public void onActivityResult(int requestCode, int resultCode,
+//                                 Intent imageData) {
+//        super.onActivityResult(requestCode, resultCode, imageData);
+//        try {
+//            switch (requestCode) {
+//                case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
+//                    CropImage.ActivityResult result = CropImage.getActivityResult(imageData);
+//                    if (resultCode == RESULT_OK) {
+//                        if (imageData != null) {
+//                            Bundle extras = imageData.getExtras();
+//                            if (extras != null) {
+//                                Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
+//                                profileUri = result.getUri();
+//                                activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
+//                                if (bitmapImg != null)
+//                                    activityUpdateProfileBinding.ivProfile.setImageBitmap(bitmapImg);
+//                                compressBitmap(profileUri);
+//                            }
+//                        }
+//                    } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+//                        Utility.showMessage(this, "Cropping failed: " + result.getError());
+//                    }
+//                    break;
+//            }
+//        } catch (Exception e) {
+//            ExceptionUtil.logException(e);
+//        }
+//    }
 
     private void compressBitmap(Uri uri) {
         String path = FileUtils.getPath(this, uri);
@@ -307,4 +370,27 @@ public class UpdateProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void readUserData(final String userId) {
+        userRepository.readUserData(userId, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                     user = (User) object;
+                    setProfileData();
+
+                } else {
+
+                }
+
+            }
+
+            @Override
+            public void onError(Object object) {
+
+            }
+        });
+    }
+
+
 }//rnd of activity

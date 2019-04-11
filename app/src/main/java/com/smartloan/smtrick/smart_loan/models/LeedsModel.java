@@ -1,5 +1,4 @@
 package com.smartloan.smtrick.smart_loan.models;
-
 import android.view.View;
 
 import com.google.firebase.database.Exclude;
@@ -13,11 +12,9 @@ import java.util.Map;
 public class LeedsModel implements Serializable {
     private String customerName;
     private String mobileNumber;
-    private String alternetMobileNumber;
     private String address;
     private String gender;
     private String agentId;
-    private String agentUserId;
     private Long createdDateTime, updatedDateTime;
     private String loanType;
     private String panCardNumber;
@@ -29,22 +26,58 @@ public class LeedsModel implements Serializable {
     private String leedId;
     private String status;
     private String customerImageSmall;
-    private String customerImagelarge;
+    private String customerImagelarg;
     private String leedNumber;
     private String bankName;
     private String payout;
     private String createdBy;
     private Map<String, ImagesModel> documentImages;
     private String approvedLoan;
-    private int colorCode;
-    private Boolean isShowColor;
-    private Map<String, History> history;
+    private String gst;
+    private String officeAdderess;
+    private String propertyAddress;
+    private String description;
+    private String  dissbussloan;
+    private String  adharNo;
+    private String  altmobile;
+    private String  income;
+    private String  parents;
+    private String  recidential;
+    private String  peraddress;
+    private String  mincome;
+    private String  yincome;
+    private String  flatno;
+    private String  projectname;
+    private String  propaddress;
+    private String  propage;
+    private String  proparea;
+    private String  pincode;
+    private String  pcity;
+    private String  pstate;
+
+
     private View.OnClickListener requestBtnClickListener;
 
     public LeedsModel() {
     }
 
     public LeedsModel(int id) {
+
+
+
+        this.flatno = "Prateek Patel";
+        this.projectname = "84121211";
+        this.propaddress = "Prateek Patel";
+        this.propage = "84121211";
+        this.proparea = "Pune";
+        this.pincode = "Prateek Patel";
+        this.pcity = "84121211";
+        this.pstate = "Pune";
+        this.mincome = "Prateek Patel";
+        this.yincome = "84121211";
+        this.parents = "Prateek Patel";
+        this.recidential = "84121211";
+        this.peraddress = "Pune";
         this.customerName = "Prateek Patel";
         this.mobileNumber = "84121211";
         this.address = "Pune";
@@ -62,6 +95,14 @@ public class LeedsModel implements Serializable {
         this.bankName = "SBI";
         this.payout = "325454";
         this.approvedLoan = "3564545";
+        this.dissbussloan = "3564545";
+        this.gst = "2%";
+        this.officeAdderess="na";
+        this.propertyAddress="na";
+        this.description="na";
+        this.altmobile="na";
+        this.adharNo="na";
+        this.income="na";
     }
 
     @Exclude
@@ -90,30 +131,47 @@ public class LeedsModel implements Serializable {
         return ServerValue.TIMESTAMP;
     }
 
+    public String getofficeAdderess() {
+        return officeAdderess;
+    }
+
+    public void setOfficeAdderess(String officeAdderess) {
+        this.officeAdderess = officeAdderess;
+    }
+    public String getpropertyAddress() {
+        return propertyAddress;
+    }
+    public String getdescription() {
+        return description;
+    }
+
+
+
     public String getCustomerName() {
         return customerName;
     }
 
+    public void setAltmobile(String altmobile) {
+        this.altmobile = altmobile;
+    }
+    public String getaltmobile() {
+        return altmobile;
+    }
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-
     public String getMobileNumber() {
         return mobileNumber;
     }
-
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
-
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
-
     public String getGender() {
         return gender;
     }
@@ -130,12 +188,24 @@ public class LeedsModel implements Serializable {
         this.agentId = agentId;
     }
 
+    public String getadharNo() {
+        return adharNo;
+    }
+
+    public String getincome() {
+        return income;
+    }
+
     public String getLoanType() {
         return loanType;
     }
 
     public void setLoanType(String loanType) {
         this.loanType = loanType;
+    }
+
+    public void setgst(String gst) {
+        this.gst = gst;
     }
 
     public String getPanCardNumber() {
@@ -154,6 +224,100 @@ public class LeedsModel implements Serializable {
         this.email = email;
     }
 
+
+
+
+
+
+    public String getFlatno() {
+        return flatno;
+    }
+
+    public void setFlatno(String flatno) {
+        this.flatno = flatno;
+    }
+
+
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+
+    public String getPropaddress() {
+        return propaddress;
+    }
+
+    public void setPropaddress(String propaddress) {
+        this.propaddress = propaddress;
+    }
+
+
+    public String getPropage() {
+        return propage;
+    }
+
+    public void setPropage(String propage) {
+        this.propage = propage;
+    }
+
+    public String getProparea() {
+        return proparea;
+    }
+
+    public void setProparea(String proparea) {
+        this.proparea = proparea;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+
+    public String getPcity() {
+        return pcity;
+    }
+    public void setPcity(String pcity) {
+        this.pcity = pcity;
+    }
+
+
+    public String getPstate() {
+        return pstate;
+    }
+    public void setPstate(String pstate) {
+        this.pstate = pstate;
+    }
+
+
+
+
+
+
+    public String getMincome() {
+        return mincome;
+    }
+
+    public void setMincome(String mincome) {
+        this.mincome = mincome;
+    }
+
+    public String getYincome() {
+        return yincome;
+    }
+
+    public void setYincome(String yincome) {
+        this.yincome = yincome;
+    }
+
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -166,10 +330,12 @@ public class LeedsModel implements Serializable {
         return expectedLoanAmount;
     }
 
+    public void setdissbussloan(String dissbussloan) {
+        this.dissbussloan = dissbussloan;
+    }
     public void setExpectedLoanAmount(String expectedLoanAmount) {
         this.expectedLoanAmount = expectedLoanAmount;
     }
-
     public String getOccupation() {
         return occupation;
     }
@@ -202,12 +368,12 @@ public class LeedsModel implements Serializable {
         this.customerImageSmall = customerImageSmall;
     }
 
-    public String getCustomerImagelarge() {
-        return customerImagelarge;
+    public String getCustomerImagelarg() {
+        return customerImagelarg;
     }
 
-    public void setCustomerImagelarge(String customerImagelarge) {
-        this.customerImagelarge = customerImagelarge;
+    public void setCustomerImagelarg(String customerImagelarg) {
+        this.customerImagelarg = customerImagelarg;
     }
 
     public String getLeedId() {
@@ -226,6 +392,32 @@ public class LeedsModel implements Serializable {
         this.leedNumber = leedNumber;
     }
 
+    public String getPeraddress() {
+        return peraddress;
+    }
+
+    public void setPeraddress(String peraddress) {
+        this.peraddress = peraddress;
+    }
+
+
+    public String getRecidential() {
+        return recidential;
+    }
+
+    public void setRecidential(String recidential) {
+        this.recidential = recidential;
+    }
+
+
+    public String getParents() {
+        return parents;
+    }
+
+    public void setParents(String bankName) {
+        this.parents = parents;
+    }
+
     public String getBankName() {
         return bankName;
     }
@@ -233,6 +425,9 @@ public class LeedsModel implements Serializable {
     public void setBankName(String bankName) {
         this.bankName = bankName;
     }
+
+
+
 
     public String getPayout() {
         return payout;
@@ -274,65 +469,6 @@ public class LeedsModel implements Serializable {
         this.requestBtnClickListener = requestBtnClickListener;
     }
 
-    public String getAgentUserId() {
-        return agentUserId;
-    }
-
-    public void setAgentUserId(String agentUserId) {
-        this.agentUserId = agentUserId;
-    }
-
-    public int getColorCode() {
-        return colorCode;
-    }
-
-    public void setColorCode(int colorCode) {
-        this.colorCode = colorCode;
-    }
-
-    public Boolean getShowColor() {
-        return isShowColor;
-    }
-
-    public void setShowColor(Boolean showColor) {
-        isShowColor = showColor;
-    }
-
-    public String getAlternetMobileNumber() {
-        return alternetMobileNumber;
-    }
-
-    public void setAlternetMobileNumber(String alternetMobileNumber) {
-        this.alternetMobileNumber = alternetMobileNumber;
-    }
-
-    public Map<String, History> getHistory() {
-        return history;
-    }
-
-    public void setHistory(Map<String, History> history) {
-        this.history = history;
-    }
-
-    @Exclude
-    public Map<String, Object> getUpdateLeedMap() {
-        Map<String, Object> objectMap = new HashMap<>();
-        objectMap.put("customerName", customerName);
-        objectMap.put("mobileNumber", mobileNumber);
-        objectMap.put("address", address);
-        objectMap.put("gender", gender);
-        objectMap.put("loanType", loanType);
-        objectMap.put("panCardNumber", panCardNumber);
-        objectMap.put("email", email);
-        objectMap.put("expectedLoanAmount", expectedLoanAmount);
-        objectMap.put("occupation", occupation);
-        objectMap.put("alternetMobileNumber", alternetMobileNumber);
-        objectMap.put("dateOfBirth", dateOfBirth);
-        objectMap.put("customerImageSmall", customerImageSmall);
-        objectMap.put("customerImagelarge", customerImagelarge);
-        return objectMap;
-    }
-
     public static ArrayList<LeedsModel> getLeeds() {
         ArrayList<LeedsModel> leedsModelArrayList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -340,5 +476,49 @@ public class LeedsModel implements Serializable {
             leedsModelArrayList.add(leedsModel);
         }
         return leedsModelArrayList;
+    }
+
+    @Exclude
+    public Map getLeedStatusMap() {
+        Map<String, Object> leedMap = new HashMap<>();
+        //leedMap.put("status", getStatus());
+        leedMap.put("updatedDateTime", getUpdatedDateTime());
+        leedMap.put("customerName", getCustomerName());
+        leedMap.put("address", getAddress());
+        leedMap.put("agentId", getAgentId());
+        leedMap.put("loanType", getLoanType());
+        leedMap.put("mobileNumber", getMobileNumber());
+        leedMap.put("panCardNumber", getPanCardNumber());
+        leedMap.put("bankName", getBankName());
+        leedMap.put("officeAdderess", getofficeAdderess());
+        leedMap.put("propertyAddress", getpropertyAddress());
+        leedMap.put("description", getdescription());
+        leedMap.put("altmobile", getaltmobile());
+        leedMap.put("adharNo", getadharNo());
+        leedMap.put("ExpectedLoanAmount", getExpectedLoanAmount());
+        leedMap.put("parents", getParents());
+        leedMap.put("recidential", getRecidential());
+        leedMap.put("peraddress", getPeraddress());
+        leedMap.put("mincome", getMincome());
+        leedMap.put("yincome", getYincome());
+        leedMap.put("flatno", getFlatno());
+        leedMap.put("projectname", getProjectname());
+        leedMap.put("propage", getPropage());
+        leedMap.put("proparea", getProparea());
+        leedMap.put("pincode", getPincode());
+        leedMap.put("pcity", getPcity());
+        leedMap.put("pstate", getPstate());
+        leedMap.put("propaddress", getPropaddress());
+
+        return leedMap;
+    }
+
+    @Exclude
+    public Map getLeedStatusMap1(){
+        Map<String, Object> leedMap = new HashMap<>();
+        leedMap.put("status", getStatus());
+        leedMap.put("updatedDateTime", getUpdatedDateTime());
+
+        return leedMap;
     }
 }

@@ -20,6 +20,7 @@ import com.smartloan.smtrick.smart_loan.models.User;
 import com.smartloan.smtrick.smart_loan.repository.FirebaseTemplateRepository;
 import com.smartloan.smtrick.smart_loan.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -256,6 +257,36 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
 
     @Override
     public void readUserByUserId(String userId, final CallBack callBack) {
+        final Query query = Constant.USER_TABLE_REF.child(userId);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    if (dataSnapshot.getValue() != null) {
+                        try {
+                            if (dataSnapshot.hasChildren()) {
+                                callBack.onSuccess(dataSnapshot.getValue(User.class));
+                            } else {
+                                callBack.onError(null);
+                            }
+                        } catch (Exception e) {
+                            ExceptionUtil.logException(e);
+                        }
+                    } else
+                        callBack.onError(null);
+                } else
+                    callBack.onError(null);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                callBack.onError(databaseError);
+            }
+        });
+    }
+
+    @Override
+    public void readUserData(String userId, final CallBack callBack) {
         final Query query = Constant.USER_TABLE_REF.child(userId);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

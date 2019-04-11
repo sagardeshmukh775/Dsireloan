@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
@@ -42,11 +43,11 @@ public class Fragment_Calculator extends Fragment {
         final EditText P = (EditText) view.findViewById(R.id.principal);
         final EditText I = (EditText) view.findViewById(R.id.interest);
         final EditText Y = (EditText) view.findViewById(R.id.years);
-        final EditText TI = (EditText) view.findViewById(R.id.interest_total);
-        final EditText result = (EditText) view.findViewById(R.id.emi);
+       // final EditText TI = (EditText) view.findViewById(R.id.interest_total);
+        final TextView result = (TextView) view.findViewById(R.id.emi);
         emiCalcBtn = (Button) view.findViewById(R.id.btn_calculate2);
-        ProgressBar _progressBar = (ProgressBar) view.findViewById(R.id.circularProgressBar);
-        _progressBar.setProgress(70);
+       // ProgressBar _progressBar = (ProgressBar) view.findViewById(R.id.circularProgressBar);
+       // _progressBar.setProgress(70);
         emiCalcBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +82,7 @@ public class Fragment_Calculator extends Fragment {
                 float TA = calTa(emi, Months);
                 float ti = calTotalInt(TA, Principal);
                 result.setText(String.valueOf(emi));
-                TI.setText(String.valueOf(ti));
+               // TI.setText(String.valueOf(ti));
             }
         });
         return view;

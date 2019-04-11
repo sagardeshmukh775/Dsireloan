@@ -20,13 +20,6 @@
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold"/>
 
-        <item
-            android:id="@+id/Invices"
-            android:icon="@drawable/invoicesicon"
-            android:title="Invoices"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
 
         <item
             android:id="@+id/Reports"

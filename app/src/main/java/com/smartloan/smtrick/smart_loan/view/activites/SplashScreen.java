@@ -44,13 +44,12 @@ public class SplashScreen extends AppCompatActivity implements AnimationListener
 		TimerTask ShowSplash = new TimerTask() {
 			@Override
 			public void run() {
-				
-				
+
 				// Close SplashScreenActivity.class
 				finish();
 
 				// Start MainActivity.class
-				Intent myIntent = new Intent(SplashScreen.this, LoginScreen.class);
+				Intent myIntent = new Intent(SplashScreen.this, Phone_Verification_Activity.class);
 				startActivity(myIntent);
 				overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 

@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.databinding.InvoiceAdapterLayoutBinding;
 import com.smartloan.smtrick.smart_loan.models.Invoice;
@@ -38,11 +40,46 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceViewHolder> {
     public void onBindViewHolder(final InvoiceViewHolder holder, final int listPosition) {
         try {
             Invoice invoice = getModel(listPosition);
-            holder.invoiceAdapterLayoutBinding.txtidvalue.setText(invoice.getInvoiceNumber());
+            holder.invoiceAdapterLayoutBinding.txtidvalue.setText(invoice.getLeedNumber());
             holder.invoiceAdapterLayoutBinding.txtcnamevalue.setText(invoice.getCustomerName());
-            holder.invoiceAdapterLayoutBinding.txtbankvalue.setText(invoice.getBankName());
-            holder.invoiceAdapterLayoutBinding.txtStatusValue.setText(invoice.getStatus());
-            holder.invoiceAdapterLayoutBinding.txtcommisionvalue.setText(invoice.getCommission());
+            holder.invoiceAdapterLayoutBinding.txtbankvalue.setText(invoice.getExpectedLoanAmount());
+         //   holder.invoiceAdapterLayoutBinding.txtStatusValue.setText(invoice.getApprovedDate());
+            holder.invoiceAdapterLayoutBinding.txtcommisionvalue.setText(invoice.getStatus());
+
+            String loanType = invoice.getLoanType().toString();
+
+            if (loanType.equalsIgnoreCase("Home Loan")){
+
+            Glide.with(context).load(R.drawable.homeloan)
+                    .apply(new RequestOptions().placeholder(R.drawable.loading))
+                    .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }else if (loanType.equalsIgnoreCase("Personal Loan")){
+
+                Glide.with(context).load(R.drawable.personal)
+                        .apply(new RequestOptions().placeholder(R.drawable.loading))
+                        .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }else if (loanType.equalsIgnoreCase("Morgage Loan")){
+
+                Glide.with(context).load(R.drawable.mortgage)
+                        .apply(new RequestOptions().placeholder(R.drawable.loading))
+                        .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }else if (loanType.equalsIgnoreCase("Top Up")){
+
+                Glide.with(context).load(R.drawable.topup)
+                        .apply(new RequestOptions().placeholder(R.drawable.loading))
+                        .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }else if (loanType.equalsIgnoreCase("Doctor Loan")){
+
+                Glide.with(context).load(R.drawable.doctor)
+                        .apply(new RequestOptions().placeholder(R.drawable.loading))
+                        .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }else if (loanType.equalsIgnoreCase("Balance Transfer Loan")){
+
+                Glide.with(context).load(R.drawable.balance)
+                        .apply(new RequestOptions().placeholder(R.drawable.loading))
+                        .into( holder.invoiceAdapterLayoutBinding.loanlogo);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

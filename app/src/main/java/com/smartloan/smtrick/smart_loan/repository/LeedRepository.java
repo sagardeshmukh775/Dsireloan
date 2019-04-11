@@ -8,11 +8,16 @@ import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import java.util.Map;
 
 public interface LeedRepository {
+
     void readAllLeeds(final CallBack callback);
 
-    void readLeedsByUserId(final Context context, final String userId, final CallBack callBack);
+    void readLeedsByUserIdReport(final Context context, final String userId, final CallBack callBack);
+
+    //void readLeedsByUserIdReport(Context context, String userId, CallBack callBack);
 
     void createLeed(final LeedsModel leedsModel, final CallBack callback);
+
+    void readLeedsByStatus(final String status, final CallBack callBack);
 
     void deleteLeed(final String leedId, final CallBack callback);
 
