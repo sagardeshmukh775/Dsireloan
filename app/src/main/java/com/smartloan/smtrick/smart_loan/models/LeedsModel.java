@@ -6,7 +6,7 @@ import com.google.firebase.database.ServerValue;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Map;
 
 public class LeedsModel implements Serializable {

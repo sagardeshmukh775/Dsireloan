@@ -1,7 +1,7 @@
 package com.smartloan.smtrick.smart_loan.view.fragements;
 
 import android.Manifest;
-import android.app.ProgressDialog;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -107,38 +107,6 @@ public class Fragment_image_upload extends Fragment implements View.OnClickListe
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//            filePath = data.getData();
-//            try {
-//               bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), filePath);
-//               imageView.setImageBitmap(bitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//           // CropImage.activity(filePath).setGuidelines(CropImageView.Guidelines.ON).setAspectRatio(1, 1).start(getActivity());
-//        }
-
-//        try {
-//
-//            if (requestCode != CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-//                CropImage.ActivityResult result = CropImage.getActivityResult(data);
-//                if (resultCode == RESULT_OK) {
-//                    img = result.getUri();
-//                    Bitmap bitmap = null;
-//
-//                        bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), img);
-//
-//                    imageView.setImageURI(img);
-//
-//
-//                }else if (resultCode == CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
-//                    Exception error = result.getError();
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//
 
         if (resultCode == RESULT_OK) {
             if (data != null) {
@@ -188,7 +156,7 @@ public class Fragment_image_upload extends Fragment implements View.OnClickListe
         //checking if file is available
         if (filePath != null) {
             //displaying progress dialog while image is uploading
-            final ProgressDialog progressDialog = new ProgressDialog(getContext());
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle("Uploading");
             progressDialog.show();
 
