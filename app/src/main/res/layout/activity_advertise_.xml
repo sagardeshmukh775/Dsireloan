@@ -58,16 +58,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
-                <Button
-                    android:id="@+id/deleteadd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Delete Add"
-                    android:background="@color/hederbackground"
-                    android:layout_alignParentBottom="true"
-                    />
+
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/deleteadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete Add"
+                android:background="@color/hederbackground"
+                android:layout_alignParentBottom="true"
+                />
 
         </LinearLayout>
 
