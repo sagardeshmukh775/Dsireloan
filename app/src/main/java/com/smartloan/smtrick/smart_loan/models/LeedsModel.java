@@ -1,4 +1,5 @@
 package com.smartloan.smtrick.smart_loan.models;
+
 import android.view.View;
 
 import com.google.firebase.database.Exclude;
@@ -6,7 +7,7 @@ import com.google.firebase.database.ServerValue;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import java.util.Map;
 
 public class LeedsModel implements Serializable {

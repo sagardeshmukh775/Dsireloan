@@ -132,7 +132,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.Calulator) {
             fragment = new Fragment_Calculator();
         } else if (id == R.id.item_logout) {
-            fragment = new Admin_Userslist_Fragment();
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            Intent logout = new Intent(MainActivity.this,Phone_Verification_Activity.class);
+            startActivity(logout);
+          //  fragment = new Admin_Userslist_Fragment();
         }else if (id == R.id.users) {
             fragment = new Admin_Userslist_Fragment();
         }else if (id == R.id.adleeds) {

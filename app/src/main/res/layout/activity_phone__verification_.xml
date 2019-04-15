@@ -64,15 +64,48 @@
 
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter your Name"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="135dp"
+         />
+
+
     <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/buttonLogin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextName"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_marginTop="10dp"
         android:id="@+id/buttonContinue"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayout"
+        android:layout_below="@id/buttonLogin"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:text="Continue"
+        android:text="Register"
         android:textAllCaps="false"
         android:textColor="#ffffff" />
+
+
+    <ProgressBar
+        android:id="@+id/progressbar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonContinue"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

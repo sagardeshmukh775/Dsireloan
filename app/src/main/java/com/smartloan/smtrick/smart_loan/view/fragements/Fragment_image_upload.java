@@ -1,7 +1,7 @@
 package com.smartloan.smtrick.smart_loan.view.fragements;
 
 import android.Manifest;
-
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;

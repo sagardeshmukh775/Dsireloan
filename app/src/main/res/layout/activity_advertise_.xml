@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:background="@color/hederbackground">
+                android:background="#000000">
 
                 <TextView
                     android:id="@+id/Ad_name"
@@ -33,7 +33,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textColor="@color/bgTitleRight"
+                    />
 
             </LinearLayout>
 
@@ -56,10 +58,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
+                <Button
+                    android:id="@+id/deleteadd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete Add"
+                    android:background="@color/hederbackground"
+                    android:layout_alignParentBottom="true"
+                    />
+
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>

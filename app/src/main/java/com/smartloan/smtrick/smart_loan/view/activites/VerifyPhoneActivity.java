@@ -17,7 +17,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.smartloan.smtrick.smart_loan.R;
+import com.smartloan.smtrick.smart_loan.models.Users;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +31,9 @@ public class VerifyPhoneActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private EditText editText;
+    private DatabaseReference mDatabase;
+
+    String phonenumber,username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +44,10 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressbar);
         editText = findViewById(R.id.editTextCode);
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
-        String phonenumber = getIntent().getStringExtra("phonenumber");
+         phonenumber = getIntent().getStringExtra("phonenumber");
+         username = getIntent().getStringExtra("name");
         sendVerificationCode(phonenumber);
 
         findViewById(R.id.buttonSignIn).setOnClickListener(new View.OnClickListener() {
@@ -71,6 +79,10 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            Users user = new Users(username,phonenumber);
+                            String uploadId = mDatabase.push().getKey();
+                            mDatabase.child(uploadId).setValue(user);
 
                             Intent intent = new Intent(VerifyPhoneActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

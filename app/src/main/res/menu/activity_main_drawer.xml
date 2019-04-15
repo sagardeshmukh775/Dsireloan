@@ -14,7 +14,7 @@
         <item
             android:id="@+id/Leads"
             android:icon="@drawable/usersimage2"
-            android:title="Leads"
+            android:title="User Leads"
             android:textSize="22sp"
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold"/>
@@ -53,7 +53,7 @@
         <item
             android:id="@+id/adleeds"
             android:icon="@drawable/usersimage2"
-            android:title="Leeds"
+            android:title="Admin Leeds"
             android:textSize="22sp"
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold"/>
