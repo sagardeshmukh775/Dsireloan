@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -58,10 +56,12 @@ public class ImageAdapter extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //this will log the page number that was click
-                Log.i("TAG", "This page was clicked: " + position);
-                Toast.makeText(context, "This page was clicked:" +image1.get(position).getName(), Toast.LENGTH_SHORT).show();
+//                Log.i("TAG", "This page was clicked: " + position);
+//                Toast.makeText(context, "This page was clicked:" +image1.get(position).getName(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, Advertise_Activity.class);
                 intent.putExtra("imagename",image1.get(position).getName());
+                intent.putExtra("imagedescription",image1.get(position).getDesc());
+                intent.putExtra("imageurl",image1.get(position).getUrl());
                 context.startActivity(intent);
             }
         });

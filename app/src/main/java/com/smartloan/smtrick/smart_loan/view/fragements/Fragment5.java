@@ -1,7 +1,6 @@
 package com.smartloan.smtrick.smart_loan.view.fragements;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.bumptech.glide.load.engine.Resource;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -150,7 +148,6 @@ public class Fragment5 extends Fragment {
         });
 
 
-
         return view;
     }
 
@@ -159,7 +156,7 @@ public class Fragment5 extends Fragment {
 
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+            uploads.clear();
             for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                 Upload upload = postSnapshot.getValue(Upload.class);
 
@@ -167,7 +164,7 @@ public class Fragment5 extends Fragment {
 
             }
 
-           // showDots();
+            // showDots();
             ImageAdapter adapter = new ImageAdapter(getContext(), uploads);
             viewPager.setAdapter(adapter);
 
