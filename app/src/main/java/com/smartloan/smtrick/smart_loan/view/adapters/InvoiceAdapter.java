@@ -50,32 +50,32 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceViewHolder> {
 
             if (loanType.equalsIgnoreCase("Home Loan")){
 
-            Glide.with(context).load(R.drawable.homeloan)
+            Glide.with(context).load(R.drawable.home_loan_gray)
                     .apply(new RequestOptions().placeholder(R.drawable.loading))
                     .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }else if (loanType.equalsIgnoreCase("Personal Loan")){
 
-                Glide.with(context).load(R.drawable.personal)
+                Glide.with(context).load(R.drawable.personal_loan_gray)
                         .apply(new RequestOptions().placeholder(R.drawable.loading))
                         .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }else if (loanType.equalsIgnoreCase("Morgage Loan")){
 
-                Glide.with(context).load(R.drawable.mortgage)
+                Glide.with(context).load(R.drawable.mortgage_loan_gray)
                         .apply(new RequestOptions().placeholder(R.drawable.loading))
                         .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }else if (loanType.equalsIgnoreCase("Top Up")){
 
-                Glide.with(context).load(R.drawable.topup)
+                Glide.with(context).load(R.drawable.topup_loan_gray)
                         .apply(new RequestOptions().placeholder(R.drawable.loading))
                         .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }else if (loanType.equalsIgnoreCase("Doctor Loan")){
 
-                Glide.with(context).load(R.drawable.doctor)
+                Glide.with(context).load(R.drawable.doctor_loan_gray)
                         .apply(new RequestOptions().placeholder(R.drawable.loading))
                         .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }else if (loanType.equalsIgnoreCase("Balance Transfer Loan")){
 
-                Glide.with(context).load(R.drawable.balance)
+                Glide.with(context).load(R.drawable.balance_transfer_loan_gray)
                         .apply(new RequestOptions().placeholder(R.drawable.loading))
                         .into( holder.invoiceAdapterLayoutBinding.loanlogo);
             }

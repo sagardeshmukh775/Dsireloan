@@ -77,6 +77,8 @@ public class Advertise_Activity extends AppCompatActivity {
 
                                         for (DataSnapshot applesnapshot : dataSnapshot.getChildren()) {
                                             applesnapshot.getRef().removeValue();
+                                            Intent intent = new Intent(Advertise_Activity.this,MainActivity.class);
+                                            startActivity(intent);
                                         }
                                     }
 

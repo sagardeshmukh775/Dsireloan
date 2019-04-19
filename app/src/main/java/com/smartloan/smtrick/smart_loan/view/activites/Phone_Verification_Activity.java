@@ -29,20 +29,17 @@ public class Phone_Verification_Activity extends AppCompatActivity {
     private Button btnlogin;
     private ProgressBar progressBar;
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone__verification_);
 
         FirebaseApp.initializeApp(this);
-//        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//
-//            startActivity(intent);
-//        }
-
+        
         progressBar = findViewById(R.id.progressbar1);
+        mAuth = FirebaseAuth.getInstance();
 
         spinner = findViewById(R.id.spinnerCountries);
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, CountryData.countryNames));
@@ -81,10 +78,9 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
                         if (dataSnapshot.getValue() != null) {
                             progressBar.setVisibility(View.INVISIBLE);
+
                             Toast.makeText(Phone_Verification_Activity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Phone_Verification_Activity.this, MainActivity.class);
-//                        intent.putExtra("phonenumber", phoneNumber);
-//                        intent.putExtra("name", username);
                             startActivity(intent);
                         }else {
                             progressBar.setVisibility(View.INVISIBLE);
@@ -162,6 +158,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         super.onStart();
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 

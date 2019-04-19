@@ -40,6 +40,7 @@ public class Fragment5 extends Fragment {
     // NOTE: Removed Some unwanted Boiler Plate Codes
     private OnFragmentInteractionListener mListener;
     private List<Upload> uploads;
+    private List<Upload> uploads1;
     ViewPager viewPager;
 
     public Fragment5() {
@@ -64,6 +65,7 @@ public class Fragment5 extends Fragment {
         sliderDotspanel = (LinearLayout) view.findViewById(R.id.SliderDots);
 
         uploads = new ArrayList<>();
+        uploads1 = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
         Query query = FirebaseDatabase.getInstance().getReference("Advertise");
@@ -161,11 +163,16 @@ public class Fragment5 extends Fragment {
                 Upload upload = postSnapshot.getValue(Upload.class);
 
                 uploads.add(upload);
+                int size = uploads.size()-1;
+                uploads1.clear();
+                for(int i=size;i>=0;i--){
+                    uploads1.add(uploads.get(i));
+                }
 
             }
 
             // showDots();
-            ImageAdapter adapter = new ImageAdapter(getContext(), uploads);
+            ImageAdapter adapter = new ImageAdapter(getContext(), uploads1);
             viewPager.setAdapter(adapter);
 
         }
