@@ -25,9 +25,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
+import com.smartloan.smtrick.smart_loan.models.Users;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.fragements.Admin1_Invoices_TabFragment;
@@ -185,17 +193,37 @@ public class MainActivity extends AppCompatActivity
         try {
             View header = navigationView.getHeaderView(0);
             TextView textViewAgentId = (TextView) header.findViewById(R.id.textView_agent_id);
-            TextView textViewUserName = (TextView) header.findViewById(R.id.textView_user_name);
+            final TextView textViewUserName = (TextView) header.findViewById(R.id.textView_user_name);
             TextView textViewEmailId = (TextView) header.findViewById(R.id.text_view_email);
             TextView textViewMobileNumber = (TextView) header.findViewById(R.id.textView_contact);
             ImageView imageViewProfile = (ImageView) header.findViewById(R.id.image_view_profile);
            // Button btneditprofile = (Button) header.findViewById(R.id.buttonviewprofile);
 
-            textViewUserName.setText(appSharedPreference.getUserName());
-            textViewEmailId.setText(appSharedPreference.getEmaiId());
-            textViewAgentId.setText(appSharedPreference.getAgeniId());
-            //textViewMobileNumber.setText(appSharedPreference.getMobileNo());
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+//                textViewUserName.setText(appSharedPreference.getUserName());
+//                textViewEmailId.setText(appSharedPreference.getEmaiId());
+//                textViewAgentId.setText(appSharedPreference.getAgeniId());
+                //textViewMobileNumber.setText(appSharedPreference.getMobileNo());
+                DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
+                Query applesQuery1 = ref1.child("users").orderByChild("mobilenumber").equalTo(user.getPhoneNumber());
 
+                applesQuery1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                            Users username = appleSnapshot.getValue(Users.class);
+                            textViewUserName.setText(username.getName());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    //    Log.e(TAG, "onCancelled", databaseError.toException());
+                    }
+                });
+                textViewMobileNumber.setText(user.getPhoneNumber());
+            }
 
             textViewMobileNumber.setOnClickListener(new View.OnClickListener() {
                 @Override

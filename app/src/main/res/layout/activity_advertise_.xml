@@ -49,7 +49,7 @@
                     android:id="@+id/Ad_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:scaleType="fitCenter"
                     android:layout_marginTop="1dp" />
 
                 <TextView

@@ -5,6 +5,9 @@ public class Users {
     private String name;
     private String mobilenumber;
 
+    public Users() {
+    }
+
     public Users(String name, String mobilenumber) {
         this.name = name;
         this.mobilenumber = mobilenumber;
