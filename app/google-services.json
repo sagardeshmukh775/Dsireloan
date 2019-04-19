@@ -23,6 +23,22 @@
           }
         },
         {
+          "client_id": "344767890533-6hph64l7l8npq79f4qb537mjk4dtl56d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartloan.smtrick.smart_loan",
+            "certificate_hash": "c13a7fdda7260b9e8a840bf8d5d955932a81c9ec"
+          }
+        },
+        {
+          "client_id": "344767890533-jag3913fmoj9m8kkbjpsu1g5nudv0h7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartloan.smtrick.smart_loan",
+            "certificate_hash": "441bb1ced4f61132be20369b6f1e31d3978b4349"
+          }
+        },
+        {
           "client_id": "344767890533-p7llv4lr7pnucqaiphkr4m5i1h8hg0ve.apps.googleusercontent.com",
           "client_type": 3
         }

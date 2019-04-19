@@ -45,7 +45,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressbar1);
 
         spinner = findViewById(R.id.spinnerCountries);
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, CountryData.countryNames));
 
         editText = findViewById(R.id.editTextPhone);
         edtname = findViewById(R.id.editTextName);

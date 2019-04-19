@@ -60,7 +60,7 @@
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
                     android:padding="5dp"
-                   android:drawableTop="@drawable/ic_action_good"
+                   android:drawableTop="@drawable/personal_loan_icon"
                     android:text="Personal Loan"
                     android:textColor="@color/white" />
 
@@ -71,7 +71,7 @@
                     android:layout_margin="2.5dp"
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
-                    android:drawableTop="@drawable/ic_action_good"
+                    android:drawableTop="@drawable/home_loan_icon"
                     android:padding="5dp"
                     android:text="Home Loan"
                     android:textColor="@color/white" />
@@ -90,7 +90,7 @@
                     android:layout_margin="2.5dp"
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
-                    android:drawableTop="@drawable/ic_action_discard"
+                    android:drawableTop="@drawable/mortgage_loan_icon"
                     android:padding="5dp"
                     android:text="Morgage Loan"
                     android:textColor="@color/white" />
@@ -102,7 +102,7 @@
                     android:layout_margin="2.5dp"
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
-                    android:drawableTop="@drawable/ic_action_discard"
+                    android:drawableTop="@drawable/topup_loan_icon"
                     android:padding="5dp"
                     android:text="Top Up"
                     android:textColor="@color/white" />
@@ -121,7 +121,7 @@
                     android:layout_margin="2.5dp"
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
-                    android:drawableTop="@drawable/ic_action_good"
+                    android:drawableTop="@drawable/balance_tranfer_loan"
                     android:padding="5dp"
                     android:text="Balance Transfer"
                     android:textColor="@color/white" />
@@ -133,7 +133,7 @@
                     android:layout_margin="2.5dp"
                     android:layout_weight="50"
                     android:background="@color/hederbackground"
-                    android:drawableTop="@drawable/ic_action_good"
+                    android:drawableTop="@drawable/doctor_loan"
                     android:padding="5dp"
                     android:text="Doctor Loan"
                     android:textColor="@color/white" />
