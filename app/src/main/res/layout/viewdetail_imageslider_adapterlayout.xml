@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true">
-    <com.smartloan.smtrick.smart_loan.utilities.RoundRectCornerImageView
+    <com.smartloan.smtrick.smart_loan_user.utilities.RoundRectCornerImageView
         android:id="@+id/iv_businessimage"
         android:layout_width="70dp"
         android:layout_height="70dp"

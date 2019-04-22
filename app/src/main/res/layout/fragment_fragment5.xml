@@ -73,7 +73,9 @@
                         android:padding="5dp"
                         android:text="Personal Loan"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->
@@ -105,7 +107,9 @@
                         android:drawableTop="@drawable/home_loan_icon"
                         android:padding="5dp"
                         android:text="Home Loan"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->
@@ -148,7 +152,9 @@
                         android:drawableTop="@drawable/mortgage_loan_icon"
                         android:padding="5dp"
                         android:text="Morgage Loan"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->
@@ -182,7 +188,9 @@
                         android:drawableTop="@drawable/topup_loan_icon"
                         android:padding="5dp"
                         android:text="Top Up"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->
@@ -225,7 +233,9 @@
                         android:drawableTop="@drawable/balance_tranfer_loan"
                         android:padding="5dp"
                         android:text="Balance Transfer"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->
@@ -259,7 +269,9 @@
                         android:drawableTop="@drawable/doctor_loan"
                         android:padding="5dp"
                         android:text="Doctor Loan"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:scaleX=".75"
+                        android:scaleY=".75"/>
 
                     <!--<TextView-->
                     <!--android:layout_weight="8"-->

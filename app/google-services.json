@@ -1,58 +1,34 @@
 {
   "project_info": {
-    "project_number": "344767890533",
-    "firebase_url": "https://dzireloan-b4e77.firebaseio.com",
-    "project_id": "dzireloan-b4e77",
-    "storage_bucket": "dzireloan-b4e77.appspot.com"
+    "project_number": "349836985108",
+    "firebase_url": "https://dezireloan-55686.firebaseio.com",
+    "project_id": "dezireloan-55686",
+    "storage_bucket": "dezireloan-55686.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:344767890533:android:74b9ad2984ed6504",
+        "mobilesdk_app_id": "1:349836985108:android:2e685e6d0ece1771",
         "android_client_info": {
-          "package_name": "com.smartloan.smtrick.smart_loan"
+          "package_name": "com.smartloan.smtrick.desire_loan_admin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "344767890533-ig8jjh41cntkd98c2p0fhbb2th8o0elp.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.smartloan.smtrick.smart_loan",
-            "certificate_hash": "7a756ca8c61f8ca1f3fce8ae9400ecec5ee5e1ba"
-          }
-        },
-        {
-          "client_id": "344767890533-6hph64l7l8npq79f4qb537mjk4dtl56d.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.smartloan.smtrick.smart_loan",
-            "certificate_hash": "c13a7fdda7260b9e8a840bf8d5d955932a81c9ec"
-          }
-        },
-        {
-          "client_id": "344767890533-jag3913fmoj9m8kkbjpsu1g5nudv0h7t.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.smartloan.smtrick.smart_loan",
-            "certificate_hash": "441bb1ced4f61132be20369b6f1e31d3978b4349"
-          }
-        },
-        {
-          "client_id": "344767890533-p7llv4lr7pnucqaiphkr4m5i1h8hg0ve.apps.googleusercontent.com",
+          "client_id": "349836985108-pq5gf1q89fmqfqe00ig3034m64njmkmg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCO6ApU9ZlMtNj7fS4Skg80yUXPPU21CQk"
+          "current_key": "AIzaSyDUye0dQoRcyMKvZvKBjiWeve0XBrOb7Ms"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "344767890533-p7llv4lr7pnucqaiphkr4m5i1h8hg0ve.apps.googleusercontent.com",
+              "client_id": "349836985108-pq5gf1q89fmqfqe00ig3034m64njmkmg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
