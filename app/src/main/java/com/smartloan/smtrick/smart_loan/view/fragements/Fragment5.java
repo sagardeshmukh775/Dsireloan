@@ -150,6 +150,13 @@ public class Fragment5 extends Fragment {
         });
 
 
+//        Drawable drawable = getResources().getDrawable(R.drawable.personal_loan_icon);
+//        drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*0.10),
+//                (int)(drawable.getIntrinsicHeight()*0.10));
+//        ScaleDrawable sd = new ScaleDrawable(drawable, 0, 96,96);
+//        Button btn = view.findViewById(R.id.btn_pl);
+//        btn.setCompoundDrawables(sd.getDrawable(), null, null, null);
+
         return view;
     }
 
