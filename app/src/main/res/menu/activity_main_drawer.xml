@@ -59,7 +59,7 @@
             android:textStyle="normal|bold"/>
         <item
             android:id="@+id/offers"
-            android:icon="@drawable/usersimage2"
+            android:icon="@drawable/offer"
             android:title="Offers"
             android:textSize="22sp"
             android:textColor="@color/textcolor"
