@@ -105,7 +105,7 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
                 // cContatct = etcontatct.getText().toString();
                 //  cAltcontatct = etalternatecontact.getText().toString();
                 //   cLoantype = etloantype.getText().toString();
-                //   cExloanamount = etexloanamount.getText().toString();
+                   cExloanamount = etexloanamount.getText().toString();
                 cAgentname = etagentname.getText().toString();
                 //  cBankname = etbankname.getText().toString();
                 cApproved = etdissbuss.getText().toString();
@@ -264,6 +264,7 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
         invoice.setDissbussLoan(cDisbuss);
         invoice.setPaymentDate(cPayment);
         invoice.setCommission(cCommission);
+        invoice.setExpectedLoanAmount(cExloanamount);
         invoice.setStatus("PENDING");
 
         return invoice;

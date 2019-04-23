@@ -27,7 +27,7 @@ import com.smartloan.smtrick.smart_loan_user.repository.impl.LeedRepositoryImpl;
 import com.smartloan.smtrick.smart_loan_user.singleton.AppSingleton;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 import com.smartloan.smtrick.smart_loan_user.view.activites.User_Invoice_Details_Activity;
-import com.smartloan.smtrick.smart_loan_user.view.adapters.InvoiceAdapter;
+import com.smartloan.smtrick.smart_loan_user.view.adapters.InvoiceAdapter1;
 import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DA
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.INVICES_LEEDS;
 
 public class Invoices_Fragment extends Fragment {
-    InvoiceAdapter invoiceAdapter;
+    InvoiceAdapter1 invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
     AppSharedPreference appSharedPreference;
@@ -146,7 +146,7 @@ public class Invoices_Fragment extends Fragment {
     private void serAdapter(ArrayList<Invoice> invoiceArrayList) {
         if (invoiceArrayList != null) {
             if (invoiceAdapter == null) {
-                invoiceAdapter = new InvoiceAdapter(getActivity(), invoiceArrayList);
+                invoiceAdapter = new InvoiceAdapter1(getActivity(), invoiceArrayList);
                 fragmentInvoiceBinding.recyclerView.setAdapter(invoiceAdapter);
                 onClickListner();
             } else {
