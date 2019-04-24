@@ -39,14 +39,10 @@ import com.smartloan.smtrick.smart_loan_user.interfaces.OnFragmentInteractionLis
 import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin1_Invoices_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Invoices_TabFragment;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Leed_TabFragment;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Userslist_Fragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment5;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Calculator;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Reports;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_image_upload;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.InvoicesTabFragment;
 import com.squareup.picasso.Picasso;
 
@@ -154,17 +150,22 @@ public class MainActivity extends AppCompatActivity
             Intent logout = new Intent(MainActivity.this,Phone_Verification_Activity.class);
             startActivity(logout);
           //  fragment = new Admin_Userslist_Fragment();
-        }else if (id == R.id.users) {
-            fragment = new Admin_Userslist_Fragment();
-        }else if (id == R.id.adleeds) {
-            fragment = new Admin_Leed_TabFragment();
-        } else if (id == R.id.offers) {
-            fragment = new Fragment_image_upload();
-        } else if (id == R.id.invoice) {
-            fragment = new Admin_Invoices_TabFragment();
-        }else if (id == R.id.admininvoice) {
-            fragment = new Admin1_Invoices_TabFragment();
         }
+//        else if (id == R.id.users) {
+//            fragment = new Admin_Userslist_Fragment();
+//        }
+//        else if (id == R.id.adleeds) {
+//            fragment = new Admin_Leed_TabFragment();
+//        }
+//        else if (id == R.id.offers) {
+//            fragment = new Fragment_image_upload();
+//        }
+        else if (id == R.id.invoice) {
+            fragment = new Admin_Invoices_TabFragment();
+        }
+//        else if (id == R.id.admininvoice) {
+//            fragment = new Admin1_Invoices_TabFragment();
+//        }
         //NOTE: Fragment changing code
         selectedFragement = fragment;
         if (fragment != null) {

@@ -43,27 +43,27 @@
             android:textSize="22sp"
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold"/>
-        <item
-            android:id="@+id/users"
-            android:icon="@drawable/usersimage2"
-            android:title="Users"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
-        <item
-            android:id="@+id/adleeds"
-            android:icon="@drawable/usersimage2"
-            android:title="Admin Leeds"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
-        <item
-            android:id="@+id/offers"
-            android:icon="@drawable/offer"
-            android:title="Offers"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
+        <!--<item-->
+            <!--android:id="@+id/users"-->
+            <!--android:icon="@drawable/usersimage2"-->
+            <!--android:title="Users"-->
+            <!--android:textSize="22sp"-->
+            <!--android:textColor="@color/textcolor"-->
+            <!--android:textStyle="normal|bold"/>-->
+        <!--<item-->
+            <!--android:id="@+id/adleeds"-->
+            <!--android:icon="@drawable/usersimage2"-->
+            <!--android:title="Admin Leeds"-->
+            <!--android:textSize="22sp"-->
+            <!--android:textColor="@color/textcolor"-->
+            <!--android:textStyle="normal|bold"/>-->
+        <!--<item-->
+            <!--android:id="@+id/offers"-->
+            <!--android:icon="@drawable/offer"-->
+            <!--android:title="Offers"-->
+            <!--android:textSize="22sp"-->
+            <!--android:textColor="@color/textcolor"-->
+            <!--android:textStyle="normal|bold"/>-->
         <item
             android:id="@+id/invoice"
             android:icon="@drawable/invoices"
@@ -72,13 +72,13 @@
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold"/>
 
-        <item
-            android:id="@+id/admininvoice"
-            android:icon="@drawable/usersimage2"
-            android:title="Admin Invoices"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
+        <!--<item-->
+            <!--android:id="@+id/admininvoice"-->
+            <!--android:icon="@drawable/usersimage2"-->
+            <!--android:title="Admin Invoices"-->
+            <!--android:textSize="22sp"-->
+            <!--android:textColor="@color/textcolor"-->
+            <!--android:textStyle="normal|bold"/>-->
 
     </group>
 

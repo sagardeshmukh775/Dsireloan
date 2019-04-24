@@ -21,8 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.models.Users;
+import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.smartloan.smtrick.smart_loan_user.constants.Constant.AGENT_PREFIX;
 
 public class VerifyPhoneActivity extends AppCompatActivity {
 
@@ -80,7 +83,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Users user = new Users(username,phonenumber);
+                            Users user = new Users(username,phonenumber, Utility.generateAgentId(AGENT_PREFIX));
                             String uploadId = mDatabase.push().getKey();
                             mDatabase.child(uploadId).setValue(user);
 

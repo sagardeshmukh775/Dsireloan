@@ -49,7 +49,7 @@ public class SplashScreen extends AppCompatActivity implements AnimationListener
 				finish();
 
 				// Start MainActivity.class
-				Intent myIntent = new Intent(SplashScreen.this, MainActivity.class);
+				Intent myIntent = new Intent(SplashScreen.this, Phone_Verification_Activity.class);
 				startActivity(myIntent);
 				overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 

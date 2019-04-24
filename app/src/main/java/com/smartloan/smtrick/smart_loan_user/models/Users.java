@@ -4,13 +4,16 @@ public class Users {
 
     private String name;
     private String mobilenumber;
+    private String agentId;
 
     public Users() {
     }
 
-    public Users(String name, String mobilenumber) {
+
+    public Users(String name, String mobilenumber, String agentId) {
         this.name = name;
         this.mobilenumber = mobilenumber;
+        this.agentId = agentId;
     }
 
     public String getName() {
@@ -27,5 +30,13 @@ public class Users {
 
     public void setMobilenumber(String mobilenumber) {
         this.mobilenumber = mobilenumber;
+    }
+
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
     }
 }
