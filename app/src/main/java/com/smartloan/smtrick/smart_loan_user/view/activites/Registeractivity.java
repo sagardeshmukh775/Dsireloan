@@ -194,7 +194,7 @@ public class Registeractivity extends AppCompatActivity implements
     }
 
     private void addUserDataToPreferences(User user) {
-      //  appSharedPreference.addUserDetails(user);
+        appSharedPreference.addUserDetails(user);
         appSharedPreference.createUserLoginSession();
     }
 
