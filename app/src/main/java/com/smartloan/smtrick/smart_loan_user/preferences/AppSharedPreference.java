@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.smartloan.smtrick.smart_loan_user.models.User;
+import com.smartloan.smtrick.smart_loan_user.models.Users;
 
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.MALE;
 
@@ -81,6 +82,39 @@ public class AppSharedPreference {
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
             }
+        editor.apply();
+    }
+
+    public void addUserDetails(Users user) {
+        editor = sharedPref.edit();
+        if (user != null) {
+            if (user.getName() != null)
+                editor.putString(USERNAME, (user.getName()));
+            if (user.getMobilenumber() != null)
+                editor.putString(EMAIL_ID, (user.getMobilenumber()));
+//            if (user.getRegId() != null)
+//                editor.putString(REG_ID, (user.getRegId()));
+//            if (user.getMobileNumber() != null)
+//                editor.putString(MOBILE_NO, (user.getMobileNumber()));
+//            if (user.getAadhaarNumber() != null)
+//                editor.putString(AADHAAR_NO, (user.getAadhaarNumber()));
+//            if (user.getUserProfileImageSmall() != null)
+//                editor.putString(PROFILE_SMALL_IMAGE, (user.getUserProfileImageSmall()));
+//            if (user.getUserProfileImageLarge() != null)
+//                editor.putString(PROFILE_LARGE_IMAGE, (user.getUserProfileImageLarge()));
+//            if (user.getUserId() != null)
+//                editor.putString(USER_ID, (user.getUserId()));
+//            if (user.getRegistrationToken() != null)
+//                editor.putString(REGISTRATION_TOKEN, (user.getRegistrationToken()));
+//            if (user.getAddress() != null)
+//                editor.putString(ADDRESS, (user.getAddress()));
+//            if (user.getRole() != null)
+//                editor.putString(ROLE, (user.getRole()));
+//            if (user.getGender() != null)
+//                editor.putString(GENDER, (user.getGender()));
+            if (user.getAgentId() != null)
+                editor.putString(AGENT_ID, (user.getAgentId()));
+        }
         editor.apply();
     }
 

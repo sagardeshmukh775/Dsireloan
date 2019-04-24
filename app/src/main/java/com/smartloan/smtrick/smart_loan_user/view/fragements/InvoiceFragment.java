@@ -92,7 +92,7 @@ public class InvoiceFragment extends Fragment {
 
     private void getInvoices() {
         progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-        invoiceRepository.readInvoicesByUserId(appSharedPreference.getUserId(), new CallBack() {
+        invoiceRepository.readInvoicesByUserId(appSharedPreference.getAgeniId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {

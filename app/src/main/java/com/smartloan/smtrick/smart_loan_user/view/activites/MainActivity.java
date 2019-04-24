@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity
     private Fragment selectedFragement;
     ImageUploadReceiver imageUploadReceiver;
     String mobile;
+    String agentId;
     Users username1;
 
     @Override
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity
 
         Intent intent =getIntent();
         mobile = intent.getStringExtra("mobile");
+        agentId = intent.getStringExtra("agentid");
         // NOTE : Just remove the fab button
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

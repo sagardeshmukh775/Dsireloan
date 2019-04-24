@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan_user.R;
+import com.smartloan.smtrick.smart_loan_user.models.Users;
+import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 
 public class Phone_Verification_Activity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
     private EditText edtname;
     private Button btnlogin;
     private ProgressBar progressBar;
+    private AppSharedPreference appSharedPreference;
 
     private FirebaseAuth mAuth;
 
@@ -37,6 +40,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_phone__verification_);
 
         FirebaseApp.initializeApp(this);
+        appSharedPreference = new AppSharedPreference(this);
         
         progressBar = findViewById(R.id.progressbar1);
         mAuth = FirebaseAuth.getInstance();
@@ -77,12 +81,23 @@ public class Phone_Verification_Activity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         if (dataSnapshot.getValue() != null) {
-                            progressBar.setVisibility(View.INVISIBLE);
+                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
-                            Toast.makeText(Phone_Verification_Activity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Phone_Verification_Activity.this, MainActivity.class);
-                            intent.putExtra("mobile",phoneNumber);
-                            startActivity(intent);
+                                Users upload = postSnapshot.getValue(Users.class);
+
+                                progressBar.setVisibility(View.INVISIBLE);
+
+                                Toast.makeText(Phone_Verification_Activity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Phone_Verification_Activity.this, MainActivity.class);
+                                appSharedPreference.addUserDetails(upload);
+                                intent.putExtra("mobile",upload.getMobilenumber());
+                                intent.putExtra("agentid", upload.getAgentId());
+                                startActivity(intent);
+
+                            }
+
+
+
                         }else {
                             progressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(Phone_Verification_Activity.this, "Login failed Please Register", Toast.LENGTH_SHORT).show();
