@@ -331,9 +331,14 @@ public class LeedsModel implements Serializable {
         return expectedLoanAmount;
     }
 
-    public void setdissbussloan(String dissbussloan) {
+    public String getDissbussloan() {
+        return dissbussloan;
+    }
+
+    public void setDissbussloan(String dissbussloan) {
         this.dissbussloan = dissbussloan;
     }
+
     public void setExpectedLoanAmount(String expectedLoanAmount) {
         this.expectedLoanAmount = expectedLoanAmount;
     }

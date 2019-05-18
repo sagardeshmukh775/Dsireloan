@@ -102,6 +102,7 @@ public class Fragment_Reports extends Fragment {
                 if (object != null) {
                     leedsModelArrayList = (ArrayList<LeedsModel>) object;
                     filterByDate(leedsModelArrayList);
+                    filterbyStatus(leedsModelArrayList);
                 }
                 progressDialogClass.dismissDialog();
             }
@@ -154,6 +155,27 @@ public class Fragment_Reports extends Fragment {
             fragmentReportBinding.textViewApprovedLeadsCount.setText("0");
             fragmentReportBinding.textViewRejectedLeadsCount.setText("0");
             //fragmentReportBinding.textViewPayoutAmount.setText("0.0");
+        }
+    }
+
+    private void filterbyStatus(ArrayList<LeedsModel> leedsModelArrayList){
+        try{
+            ArrayList<LeedsModel> filterArrayList = new ArrayList<>();
+            if (leedsModelArrayList != null) {
+                for (LeedsModel leedsModel : leedsModelArrayList) {
+                    if (leedsModel.getStatus().equalsIgnoreCase(STATUS_APPROVED)) {
+                        filterArrayList.add(leedsModel);
+                    }
+                }
+                int approved_amount = 0;
+                for (int i = 0;i<filterArrayList.size(); i++){
+                    approved_amount =approved_amount +  Integer.parseInt(filterArrayList.get(i).getDissbussloan());
+                }
+                fragmentReportBinding.textViewTotalAmountValue.setText(String.valueOf(approved_amount));
+            }
+
+        }catch (Exception e){
+
         }
     }
 

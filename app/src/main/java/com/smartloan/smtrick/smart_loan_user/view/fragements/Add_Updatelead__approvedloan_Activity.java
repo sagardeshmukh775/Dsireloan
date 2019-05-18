@@ -101,13 +101,8 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
                 cLeedid = invoice.getLeedId();
                 cLeedNumber = invoice.getLeedNumber();
                 cAgentid = appSharedPreference.getAgeniId();
-                // cAdress = etaddress.getText().toString();
-                // cContatct = etcontatct.getText().toString();
-                //  cAltcontatct = etalternatecontact.getText().toString();
-                //   cLoantype = etloantype.getText().toString();
-                   cExloanamount = etexloanamount.getText().toString();
+                cExloanamount = etexloanamount.getText().toString();
                 cAgentname = etagentname.getText().toString();
-                //  cBankname = etbankname.getText().toString();
                 cApproved = etdissbuss.getText().toString();
                 cPayment = etpaymentdate.getText().toString();
                 cCommission = etcommition.getText().toString();
@@ -294,21 +289,21 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
 
     private void generateinvoice(String leedId) {
         Invoice invoice1 = sendInvoiceDetails();
-            progressDialogClass.showDialog(this.getString(R.string.leed_In_loading), this.getString(R.string.PLEASE_WAIT));
+        progressDialogClass.showDialog(this.getString(R.string.leed_In_loading), this.getString(R.string.PLEASE_WAIT));
         invoiceRepository.createInvoice(invoice1, new CallBack() {
-                @Override
-                public void onSuccess(Object object) {
-                    Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "Send Invoice Successfully", Toast.LENGTH_SHORT).show();
-                    progressDialogClass.dismissDialog();
-                }
+            @Override
+            public void onSuccess(Object object) {
+                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "Send Invoice Successfully", Toast.LENGTH_SHORT).show();
+                progressDialogClass.dismissDialog();
+            }
 
-                @Override
-                public void onError(Object object) {
-                    progressDialogClass.dismissDialog();
-                    Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "invoice fail", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onError(Object object) {
+                progressDialogClass.dismissDialog();
+                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "invoice fail", Toast.LENGTH_SHORT).show();
 
-                }
-            });
+            }
+        });
 
     }
 
