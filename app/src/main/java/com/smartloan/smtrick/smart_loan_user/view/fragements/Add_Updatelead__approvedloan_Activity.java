@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
 import com.smartloan.smtrick.smart_loan_user.models.Invoice;
@@ -38,6 +40,7 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
     AppSharedPreference appSharedPreference;
     InvoiceRepository invoiceRepository;
     ArrayList<Invoice> leedsModelArrayList;
+    private DatabaseReference mDatabase;
 
     EditText etbankname, etdate, etexloanamount, etcname, etaddress, etloantype, etagentname,
             etdissbuss, etcontatct, etalternatecontact, etbirthdate, etpanno, etadharno,
@@ -65,6 +68,8 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
 
         btnnext = (Button) findViewById(R.id.buttonupdatenext);
         btnsendinvoice = (Button) findViewById(R.id.buttonsendinvoice);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("invoice");
 
 
         btnnext.setOnClickListener(new View.OnClickListener() {
@@ -290,20 +295,23 @@ public class Add_Updatelead__approvedloan_Activity extends AppCompatActivity imp
     private void generateinvoice(String leedId) {
         Invoice invoice1 = sendInvoiceDetails();
         progressDialogClass.showDialog(this.getString(R.string.leed_In_loading), this.getString(R.string.PLEASE_WAIT));
-        invoiceRepository.createInvoice(invoice1, new CallBack() {
-            @Override
-            public void onSuccess(Object object) {
-                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "Send Invoice Successfully", Toast.LENGTH_SHORT).show();
-                progressDialogClass.dismissDialog();
-            }
+//        invoiceRepository.createInvoice(invoice1, new CallBack() {
+//            @Override
+//            public void onSuccess(Object object) {
+//                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "Send Invoice Successfully", Toast.LENGTH_SHORT).show();
+//                progressDialogClass.dismissDialog();
+//            }
+//
+//            @Override
+//            public void onError(Object object) {
+//                progressDialogClass.dismissDialog();
+//                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "invoice fail", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
-            @Override
-            public void onError(Object object) {
-                progressDialogClass.dismissDialog();
-                Toast.makeText(Add_Updatelead__approvedloan_Activity.this, "invoice fail", Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        String uploadId = mDatabase.push().getKey();
+        mDatabase.child(uploadId).setValue(invoice1);
 
     }
 

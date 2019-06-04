@@ -9,12 +9,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/dloan"
-        android:label="@string/app_name"
+        android:label="Desire Loan"
         android:roundIcon="@drawable/dloan"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.smartloan.smtrick.smart_loan_user.view.activites.SplashScreen">
+        <activity android:name=".view.activites.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,29 +21,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.LoginScreen"
+            android:name=".view.activites.LoginScreen"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Registeractivity"
+            android:name=".view.activites.Registeractivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.MainActivity"
+            android:name=".view.activites.MainActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.NewLeadActivity"
+            android:name=".view.activites.NewLeadActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.TermsCondition_Activity"
+            android:name=".view.activites.TermsCondition_Activity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.GenerateLeads"
+            android:name=".view.activites.GenerateLeads"
             android:label="@string/title_activity_generate_leads"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.ImageSwipZoomActivity"
+            android:name=".view.activites.ImageSwipZoomActivity"
             android:label="@string/title_activity_generate_leads"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -52,59 +51,64 @@
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.smartloan.smtrick.smart_loan_user.service.UploadImageService"
+            android:name=".service.UploadImageService"
             android:exported="false"
             android:stopWithTask="false" />
         <service
-            android:name="com.smartloan.smtrick.smart_loan_user.service.ImageUploadIntentService"
+            android:name=".service.ImageUploadIntentService"
             android:exported="false"
             android:stopWithTask="false" />
 
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.UpdateProfileActivity"
+            android:name=".view.activites.UpdateProfileActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Add_Updatelead_C_Details_Activity"
+            android:name=".view.activites.Add_Updatelead_C_Details_Activity"
             android:windowSoftInputMode="stateHidden" />
 
         <service
-            android:name="com.smartloan.smtrick.smart_loan_user.service.UploadImageService"
+            android:name=".service.UploadImageService"
             android:exported="false"
             android:stopWithTask="false" />
         <service
-            android:name="com.smartloan.smtrick.smart_loan_user.service.ImageUploadIntentService"
+            android:name=".service.ImageUploadIntentService"
             android:exported="false"
             android:stopWithTask="false" />
 
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Add_Updatelead__bankresult_Activity"
+            android:name=".view.activites.Add_Updatelead__bankresult_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.fragements.Add_Updatelead__approvedloan_Activity"
+            android:name=".view.fragements.Add_Updatelead__approvedloan_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Add_Updatelead__submittobank_Activity"
+            android:name=".view.activites.Add_Updatelead__submittobank_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.ImagePickerActivity"
+            android:name=".view.activites.ImagePickerActivity"
             android:label="Pick Image"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.CropImageActivity"
+            android:name=".view.activites.CropImageActivity"
             android:label="Crop Image"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Advertise_Activity"
+            android:name=".view.activites.Advertise_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Invoice_Details_Activity"
+            android:name=".view.activites.Invoice_Details_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.smartloan.smtrick.smart_loan_user.view.activites.User_Invoice_Details_Activity"
+            android:name=".view.activites.User_Invoice_Details_Activity"
             android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name="com.smartloan.smtrick.smart_loan_user.view.activites.Phone_Verification_Activity"/>
-        <activity android:name="com.smartloan.smtrick.smart_loan_user.view.activites.VerifyPhoneActivity"/>
+        <activity android:name=".view.activites.Phone_Verification_Activity" />
+
+        <activity android:name=".view.activites.VerifyPhoneActivity" />
+
+        <activity android:name=".view.activites.Program_Details_Activity" />
+
+        <activity android:name=".view.activites.Program_Details_Marathi_Activity" />
     </application>
 
 </manifest>

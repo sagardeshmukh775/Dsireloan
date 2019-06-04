@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activites.Program_Details_Activity">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="डिझायर लोन भागीदार कार्यक्रम"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textStyle="normal"
+            android:text="आमच्या सर्व सेवा आणि एकत्रित प्रयत्नांद्वारे आम्ही डिझायर लोन,आमच्या हजारो ग्राहकांच्या इच्छा आणि स्वप्ने यांच्या
+        पूर्ततेसाठी कटिबद्ध आहोत. त्या स्वप्नांच्या पूर्ततेसाठी घेतलेली 'डिझायर लोन भागीदार कार्यक्रम' ही केवळ एक पुढची पायरी आहे."/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textStyle="normal"
+            android:text="डिझायर लोन भागीदार ऍप केवळ कधीही ,कोठुनही कर्ज घेण्यास मदत देऊ करते असेच नाही तर तुमच्यासाठी स्वकमाईची
+        संधीही निर्माण करते."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="भागीदार का व्हायचे?"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•तात्काळ पे आऊट"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•सोयीच्या कामाच्या वेळा"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•कमाईची आकर्षक संधी"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•गुंतवणुकीची आवश्यकता नाही"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•कार्यालयाची आवश्यकता नाही"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•कर्मचारी वर्गाची आवश्यकता नाही"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="भागीदार कोण होऊ शकतो?"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  •१८ वर्षाहून अधिक वय असलेली कोणीही व्यक्ती डिझायर लोन भागीदार होऊ शकते."/>
+
+
+    </LinearLayout>
+
+</ScrollView>

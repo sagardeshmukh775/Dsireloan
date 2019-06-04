@@ -45,6 +45,22 @@
             android:textStyle="normal|bold"/>
 
         <item
+            android:id="@+id/ContactUs"
+            android:icon="@drawable/contact_us"
+            android:title="Contact Us"
+            android:textSize="22sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="normal|bold"/>
+
+        <item
+            android:id="@+id/faq"
+            android:icon="@drawable/faqs"
+            android:title="FAQs"
+            android:textSize="22sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="normal|bold"/>
+
+        <item
             android:id="@+id/item_logout"
             android:icon="@drawable/settingsimage"
             android:title="Log out"

@@ -42,6 +42,8 @@ import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Invoices_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment5;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Calculator;
+import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Contact_Us;
+import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_FAQs;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Reports;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.InvoicesTabFragment;
 import com.squareup.picasso.Picasso;
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent =getIntent();
+        Intent intent = getIntent();
         mobile = intent.getStringExtra("mobile");
         agentId = intent.getStringExtra("agentid");
         // NOTE : Just remove the fab button
@@ -89,12 +91,11 @@ public class MainActivity extends AppCompatActivity
         ft.commit();
 
         Boolean per = isStoragePermissionGranted();
-        if (per){
+        if (per) {
             //   Toast.makeText(this, "Storage Premission Granted", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(this, "Storage Premission Required", Toast.LENGTH_SHORT).show();
         }
-
 
 
     }
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity
                 if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         == PackageManager.PERMISSION_GRANTED) {
                     return true;
-                }else {
+                } else {
                     return false;
                 }
             }
@@ -146,12 +147,16 @@ public class MainActivity extends AppCompatActivity
             fragment = new Fragment_Reports();
         } else if (id == R.id.Calulator) {
             fragment = new Fragment_Calculator();
+        } else if (id == R.id.faq) {
+            fragment = new Fragment_FAQs();
+        } else if (id == R.id.ContactUs) {
+            fragment = new Fragment_Contact_Us();
         } else if (id == R.id.item_logout) {
             FirebaseAuth.getInstance().signOut();
             finish();
-            Intent logout = new Intent(MainActivity.this,Phone_Verification_Activity.class);
+            Intent logout = new Intent(MainActivity.this, Phone_Verification_Activity.class);
             startActivity(logout);
-          //  fragment = new Admin_Userslist_Fragment();
+            //  fragment = new Admin_Userslist_Fragment();
         }
 //        else if (id == R.id.users) {
 //            fragment = new Admin_Userslist_Fragment();
@@ -184,7 +189,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(String title) {
         // NOTE:  Code to replace the toolbar title based current visible fragment
-      //  getSupportActionBar().setTitle(title);
+        //  getSupportActionBar().setTitle(title);
     }
 
     private void clearDataWithSignOut() {
@@ -209,14 +214,14 @@ public class MainActivity extends AppCompatActivity
             TextView textViewEmailId = (TextView) header.findViewById(R.id.text_view_email);
             final TextView textViewMobileNumber = (TextView) header.findViewById(R.id.textView_contact);
             ImageView imageViewProfile = (ImageView) header.findViewById(R.id.image_view_profile);
-           // Button btneditprofile = (Button) header.findViewById(R.id.buttonviewprofile);
+            // Button btneditprofile = (Button) header.findViewById(R.id.buttonviewprofile);
 
             DatabaseReference Dref = FirebaseDatabase.getInstance().getReference("users");
             Dref.orderByChild("mobilenumber").equalTo(mobile).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
-                         username1 = appleSnapshot.getValue(Users.class);
+                        username1 = appleSnapshot.getValue(Users.class);
                         textViewUserName.setText(username1.getName());
                         textViewMobileNumber.setText(username1.getMobilenumber());
 
@@ -228,7 +233,6 @@ public class MainActivity extends AppCompatActivity
 
                 }
             });
-
 
 
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -251,7 +255,7 @@ public class MainActivity extends AppCompatActivity
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                    //    Log.e(TAG, "onCancelled", databaseError.toException());
+                        //    Log.e(TAG, "onCancelled", databaseError.toException());
                     }
                 });
                 textViewMobileNumber.setText(user.getPhoneNumber());

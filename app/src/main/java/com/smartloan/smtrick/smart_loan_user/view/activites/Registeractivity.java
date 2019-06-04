@@ -42,6 +42,7 @@ public class Registeractivity extends AppCompatActivity implements
     private ProgressDialogClass progressDialogClass;
     private AppSharedPreference appSharedPreference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,8 @@ public class Registeractivity extends AppCompatActivity implements
         txttc = (TextView) findViewById(R.id.txttermsandconditions);
         setClickListners();
         setTouchListner();
+
+
     }
 
     @Override

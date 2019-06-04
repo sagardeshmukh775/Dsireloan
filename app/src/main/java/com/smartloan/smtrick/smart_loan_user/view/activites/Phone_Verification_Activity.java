@@ -1,5 +1,6 @@
 package com.smartloan.smtrick.smart_loan_user.view.activites;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -34,6 +37,8 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    TextView aboutProgram;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +46,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         appSharedPreference = new AppSharedPreference(this);
-        
+
         progressBar = findViewById(R.id.progressbar1);
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,7 +55,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
         editText = findViewById(R.id.editTextPhone);
         edtname = findViewById(R.id.editTextName);
-        
+
         btnlogin = findViewById(R.id.buttonLogin);
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,15 +95,14 @@ public class Phone_Verification_Activity extends AppCompatActivity {
                                 Toast.makeText(Phone_Verification_Activity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Phone_Verification_Activity.this, MainActivity.class);
                                 appSharedPreference.addUserDetails(upload);
-                                intent.putExtra("mobile",upload.getMobilenumber());
+                                intent.putExtra("mobile", upload.getMobilenumber());
                                 intent.putExtra("agentid", upload.getAgentId());
                                 startActivity(intent);
 
                             }
 
 
-
-                        }else {
+                        } else {
                             progressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(Phone_Verification_Activity.this, "Login failed Please Register", Toast.LENGTH_SHORT).show();
 
@@ -110,11 +114,11 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
                     }
                 });
-                
-                
+
+
             }
         });
-        
+
 
         findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,9 +151,9 @@ public class Phone_Verification_Activity extends AppCompatActivity {
                         if (dataSnapshot.getValue() != null) {
                             progressBar.setVisibility(View.INVISIBLE);
 
-                                Toast.makeText(Phone_Verification_Activity.this, "User Already Exists Please Login", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Phone_Verification_Activity.this, "User Already Exists Please Login", Toast.LENGTH_SHORT).show();
 
-                        }else {
+                        } else {
                             progressBar.setVisibility(View.INVISIBLE);
 
                             Intent intent = new Intent(Phone_Verification_Activity.this, VerifyPhoneActivity.class);
@@ -165,6 +169,47 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        aboutProgram = (TextView) findViewById(R.id.aboutprogram);
+        aboutProgram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    final Dialog dialog1 = new Dialog(Phone_Verification_Activity.this);
+                    dialog1.setContentView(R.layout.customdialogbox);
+                    RadioButton hindi = (RadioButton) dialog1.findViewById(R.id.radiohindi);
+                    RadioButton english = (RadioButton) dialog1.findViewById(R.id.radioenglish);
+                    TextView cancle = (TextView) dialog1.findViewById(R.id.cancle);
+                    hindi.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Phone_Verification_Activity.this, Program_Details_Marathi_Activity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    english.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Phone_Verification_Activity.this, Program_Details_Activity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    cancle.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog1.cancel();
+                        }
+                    });
+
+
+                    dialog1.show();
+
+                } catch (Exception e) {
+                    Toast.makeText(Phone_Verification_Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

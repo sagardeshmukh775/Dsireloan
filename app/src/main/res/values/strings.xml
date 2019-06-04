@@ -81,4 +81,29 @@
     <string name="file_uploading_complited_message">Total uploaded files :&#160; </string>
     <string name="notification_message">Don\'t close the app.</string>
     <string name="file_attached">Total Count :&#160;</string>
+
+
+    <string name="dezire_loan">We, at Desire Loans through all our services and our collective efforts
+        are directed towards fulfilling the aspirations and dreams of thousands of our customers.
+        Desire Loans Partner Program is just another step towards fulfillment of those dreams, through our partnership.
+    </string>
+    <string name="dezire_loan1"> The Desire Loans Partner App not only offers to you a platform to assist people in availing a Loan anytime and
+        anywhere but also lets you generate earnings for yourself.</string>
+
+
+    <string name="partner_why">Why become a Partner?</string>
+
+    <string name="points">
+        •Instant Payouts
+    </string>
+
+    <string name="who">
+Who can become a Partner?
+</string>
+
+    <string name="who_can">
+•Any Individual above 18 years of age can become an Desire Loans Partner.</string>
+
+
+
 </resources>
