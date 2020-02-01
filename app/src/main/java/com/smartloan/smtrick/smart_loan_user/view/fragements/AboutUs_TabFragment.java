@@ -13,13 +13,13 @@ import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan_user.view.adapters.ViewPagerAdapter;
 
-public class InvoicesTabFragment extends Fragment {
+public class AboutUs_TabFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
 
-    public InvoicesTabFragment() {
+    public AboutUs_TabFragment() {
     }
 
     @Override
@@ -31,22 +31,16 @@ public class InvoicesTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.view_pager_tab_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragement(new InvoiceFragment(), "Generated");
+        viewPagerAdapter.addFragement(new Fragment_About_Us(), "Englist");
+        viewPagerAdapter.addFragement(new Fragment_About_Us_Marathi(), "Marathi");
 
-        viewPagerAdapter.addFragement(new InvoiceFragment_Inprocess(), "In_Process");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Login(), "Login");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Sanction(), "Sanction");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Subited_For_disbuss(), "Submited_For_disbuss");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Partialy_disbuss(), "Partially_disbuss");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Full_disbuss(), "Full_disbuss");
-
-        viewPagerAdapter.addFragement(new PaidInvoiceFragment(), "Submited");
-        viewPagerAdapter.addFragement(new ApprovedInvoiceFragment(), "Approved");
-        viewPagerAdapter.addFragement(new RejectedInvoiceFragment(), "Rejected");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-//        tabLayout.setTabMode(1);
+        tabLayout.setTabMode(1);
         tabLayout.setupWithViewPager(viewPager);
+
+
+
         return view;
     }
 
@@ -55,8 +49,7 @@ public class InvoicesTabFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-        } else
-            {
+        } else {
             // NOTE: This is the part that usually gives you the error
             throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }

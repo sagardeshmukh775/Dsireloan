@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
@@ -18,6 +19,7 @@ import com.smartloan.smtrick.smart_loan_user.databinding.ActivityUpdateProfileBi
 import com.smartloan.smtrick.smart_loan_user.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan_user.firebasestorage.StorageService;
 import com.smartloan.smtrick.smart_loan_user.models.User;
+import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.repository.UserRepository;
 import com.smartloan.smtrick.smart_loan_user.repository.impl.UserRepositoryImpl;
@@ -28,13 +30,14 @@ import com.smartloan.smtrick.smart_loan_user.utilities.FileUtils;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 import com.squareup.picasso.Picasso;
-//import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.InputStream;
 import java.util.HashMap;
 
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.RESULT_CODE;
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.USER_PROFILE_PATH;
+
+//import com.theartofdev.edmodo.cropper.CropImage;
 
 public class UpdateProfileActivity extends AppCompatActivity {
     ActivityUpdateProfileBinding activityUpdateProfileBinding;
@@ -44,7 +47,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
-    User user;
+    Users user;
 
 
     @Override
@@ -54,8 +57,11 @@ public class UpdateProfileActivity extends AppCompatActivity {
         appSharedPreference = new AppSharedPreference(this);
         progressDialogClass = new ProgressDialogClass(this);
         userRepository = new UserRepositoryImpl(this);
+
+        Intent intent = getIntent();
+        String agentid = intent.getStringExtra("agentid");
         setToolBar();
-        readUserData(appSharedPreference.getUserId());
+        readUserData(appSharedPreference.getAgeniId());
 //        setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
@@ -80,72 +86,71 @@ public class UpdateProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void setProfileData() {
+    private void setProfileData(Users user) {
 
 
-            try {
 
-                if (appSharedPreference.getUserName() != null) {
-                    activityUpdateProfileBinding.edittextname.setText(appSharedPreference.getUserName());
-                }
-                if (appSharedPreference.getAddress() != null) {
-                    activityUpdateProfileBinding.edittextaddress.setText(appSharedPreference.getAddress());
-                }
-                if (appSharedPreference.getMobileNo() != null) {
-                    activityUpdateProfileBinding.edittextmobile.setText(appSharedPreference.getMobileNo());
-                }
-                if (appSharedPreference.getEmaiId() != null) {
-                    activityUpdateProfileBinding.edittextemailid.setText(appSharedPreference.getEmaiId());
-                }
-                if (user.getAltmobileno() != null) {
-                    activityUpdateProfileBinding.edittextaltmobilenumber.setText(user.getAltmobileno());
-                }
-                if (user.getFather() != null) {
-                    activityUpdateProfileBinding.edittextfathersname.setText(user.getFather());
-                }
-                if (user.getCity() != null) {
-                    activityUpdateProfileBinding.edittexcity.setText(user.getCity());
-                }
-                if (user.getState() != null) {
-                    activityUpdateProfileBinding.edittextstate.setText(user.getState());
-                }
-                if (user.getState() != null) {
-                    activityUpdateProfileBinding.edittextbirthdate.setText(user.getBirthdate());
-                }
-                if (user.getPincode() != null) {
-                    activityUpdateProfileBinding.edittextpincode.setText(user.getPincode());
-                }
-                if (user.getAccountname() != null) {
-                    activityUpdateProfileBinding.edittextaccountname.setText(user.getAccountname());
-                }
-                if (user.getBank() != null) {
-                    activityUpdateProfileBinding.edittextbank.setText(user.getBank());
-                }
-                if (user.getAccounttype() != null) {
-                    activityUpdateProfileBinding.edittextaccounttype.setText(user.getAccounttype());
-                }
-                if (user.getAccountno() != null) {
-                    activityUpdateProfileBinding.edittextaccountnumber.setText(user.getAccountno());
-                }
-                if (user.getPan() != null) {
-                    activityUpdateProfileBinding.edittextpan.setText(user.getPan());
-                }
-                if (user.getBranch() != null) {
-                    activityUpdateProfileBinding.edittextbranch.setText(user.getBranch());
-                }
-                if (user.getIfsc() != null) {
-                    activityUpdateProfileBinding.edittextifsc.setText(user.getIfsc());
+        try {
 
-                    // profileImage = appSharedPreference.getProfileLargeImage();
-                }
-
-                if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-                    Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(activityUpdateProfileBinding.ivProfile);
-                    activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
-                } else
-                    activityUpdateProfileBinding.ivProfile.setImageResource(R.drawable.dummy_user_profile);
-            } catch (Exception e) {
+            if (appSharedPreference.getUserName() != null) {
+                activityUpdateProfileBinding.edittextname.setText(user.getName());
             }
+            if (appSharedPreference.getAddress() != null) {
+                activityUpdateProfileBinding.edittextaddress.setText(user.getAddress());
+            }
+            if (appSharedPreference.getMobileNo() != null) {
+                activityUpdateProfileBinding.edittextmobile.setText(user.getMobilenumber());
+            }
+            if (appSharedPreference.getEmaiId() != null) {
+                activityUpdateProfileBinding.edittextemailid.setText(user.getEmail());
+            }
+            if (user.getAltmobilenumber() != null) {
+                activityUpdateProfileBinding.edittextaltmobilenumber.setText(user.getAltmobilenumber());
+            }
+            if (user.getFathername() != null) {
+                activityUpdateProfileBinding.edittextfathersname.setText(user.getFathername());
+            }
+            if (user.getCity() != null) {
+                activityUpdateProfileBinding.edittexcity.setText(user.getCity());
+            }
+            if (user.getState() != null) {
+                activityUpdateProfileBinding.edittextstate.setText(user.getState());
+            }
+            if (user.getBirthdate() != null) {
+                activityUpdateProfileBinding.edittextbirthdate.setText(user.getBirthdate());
+            }
+            if (user.getPincode() != null) {
+                activityUpdateProfileBinding.edittextpincode.setText(user.getPincode());
+            }
+            if (user.getAccountname() != null) {
+                activityUpdateProfileBinding.edittextaccountname.setText(user.getAccountname());
+            }
+            if (user.getBankname() != null) {
+                activityUpdateProfileBinding.edittextbank.setText(user.getBankname());
+            }
+            if (user.getAccounttype() != null) {
+                activityUpdateProfileBinding.edittextaccounttype.setText(user.getAccounttype());
+            }
+            if (user.getAccountnumber() != null) {
+                activityUpdateProfileBinding.edittextaccountnumber.setText(user.getAccountnumber());
+            }
+            if (user.getPannumber() != null) {
+                activityUpdateProfileBinding.edittextpan.setText(user.getPannumber());
+            }
+            if (user.getBranchname() != null) {
+                activityUpdateProfileBinding.edittextbranch.setText(user.getBranchname());
+            }
+            if (user.getIfsc() != null) {
+                activityUpdateProfileBinding.edittextifsc.setText(user.getIfsc());
+                // profileImage = appSharedPreference.getProfileLargeImage();
+            }
+            if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+                Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(activityUpdateProfileBinding.ivProfile);
+                activityUpdateProfileBinding.ivCancelProfile.setVisibility(View.VISIBLE);
+            } else
+                activityUpdateProfileBinding.ivProfile.setImageResource(R.drawable.dummy_user_profile);
+        } catch (Exception e) {
+        }
     }
 
     private void setUpdateClickListner() {
@@ -158,31 +163,33 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void validateAndCreateUser() {
-        User user = fillUserModel();
-        if (validate(user))
-            updateUser(user);
+        Users user = fillUserModel();
+//        if (validate(user))
+        //  updateUser(user);
+        updateLeed(user);
     }
 
-    private User fillUserModel() {
-        User user = new User();
-        user.setUserName(activityUpdateProfileBinding.edittextname.getText().toString());
-        user.setMobileNumber(activityUpdateProfileBinding.edittextmobile.getText().toString());
+    private Users fillUserModel() {
+        Users user = new Users();
+        user.setName(activityUpdateProfileBinding.edittextname.getText().toString());
+        user.setMobilenumber(activityUpdateProfileBinding.edittextmobile.getText().toString());
         user.setAddress(activityUpdateProfileBinding.edittextaddress.getText().toString());
         user.setEmail(activityUpdateProfileBinding.edittextemailid.getText().toString());
-        user.setAltmobileno(activityUpdateProfileBinding.edittextaltmobilenumber.getText().toString());
-        user.setFather(activityUpdateProfileBinding.edittextfathersname.getText().toString());
+        user.setAltmobilenumber(activityUpdateProfileBinding.edittextaltmobilenumber.getText().toString());
+        user.setFathername(activityUpdateProfileBinding.edittextfathersname.getText().toString());
         user.setCity(activityUpdateProfileBinding.edittexcity.getText().toString());
         user.setState(activityUpdateProfileBinding.edittextstate.getText().toString());
         user.setBirthdate(activityUpdateProfileBinding.edittextbirthdate.getText().toString());
         user.setPincode(activityUpdateProfileBinding.edittextpincode.getText().toString());
         user.setAccountname(activityUpdateProfileBinding.edittextaccountname.getText().toString());
-        user.setBank(activityUpdateProfileBinding.edittextbank.getText().toString());
+        user.setBankname(activityUpdateProfileBinding.edittextbank.getText().toString());
         user.setAccounttype(activityUpdateProfileBinding.edittextaccounttype.getText().toString());
-        user.setAccountno(activityUpdateProfileBinding.edittextaccountnumber.getText().toString());
-        user.setPan(activityUpdateProfileBinding.edittextpan.getText().toString());
-        user.setBranch(activityUpdateProfileBinding.edittextbranch.getText().toString());
+        user.setAccountnumber(activityUpdateProfileBinding.edittextaccountnumber.getText().toString());
+        user.setPannumber(activityUpdateProfileBinding.edittextpan.getText().toString());
+        user.setBranchname(activityUpdateProfileBinding.edittextbranch.getText().toString());
         user.setIfsc(activityUpdateProfileBinding.edittextifsc.getText().toString());
-
+        user.setUserid(appSharedPreference.getUserId());
+        user.setAgentId(appSharedPreference.getAgeniId());
         // user.setUserProfileImageLarge(profileImage);
         //user.setUserProfileImageSmall(profileImage);
 
@@ -234,6 +241,27 @@ public class UpdateProfileActivity extends AppCompatActivity {
             public void onError(Object object) {
                 progressDialogClass.dismissDialog();
                 Utility.showMessage(getApplicationContext(), getMessage(R.string.data_updation_fails_message));
+            }
+        });
+    }
+
+    private void updateLeed(final Users user) {
+        progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
+        userRepository.updateLeed(appSharedPreference.getUserId(), user.getUpdateUserMap(), new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                Toast.makeText(UpdateProfileActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                progressDialogClass.dismissDialog();
+
+                Intent i = new Intent(UpdateProfileActivity.this, MainActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+            }
+
+            @Override
+            public void onError(Object object) {
+                progressDialogClass.dismissDialog();
+                Utility.showLongMessage(UpdateProfileActivity.this, getString(R.string.server_error));
             }
         });
     }
@@ -370,12 +398,12 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void readUserData(final String userId) {
-        userRepository.readUserData(userId, new CallBack() {
+        userRepository.readUser(userId, new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {
-                     user = (User) object;
-                    setProfileData();
+                     user = (Users) object;
+                    setProfileData(user);
 
                 } else {
 

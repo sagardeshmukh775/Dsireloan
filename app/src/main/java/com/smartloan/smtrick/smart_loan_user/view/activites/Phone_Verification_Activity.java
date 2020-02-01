@@ -2,6 +2,7 @@ package com.smartloan.smtrick.smart_loan_user.view.activites;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan_user.R;
+import com.smartloan.smtrick.smart_loan_user.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 
@@ -46,6 +48,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         appSharedPreference = new AppSharedPreference(this);
+        checkLoginState();
 
         progressBar = findViewById(R.id.progressbar1);
         mAuth = FirebaseAuth.getInstance();
@@ -95,6 +98,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
                                 Toast.makeText(Phone_Verification_Activity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Phone_Verification_Activity.this, MainActivity.class);
                                 appSharedPreference.addUserDetails(upload);
+                                appSharedPreference.createUserLoginSession();
                                 intent.putExtra("mobile", upload.getMobilenumber());
                                 intent.putExtra("agentid", upload.getAgentId());
                                 startActivity(intent);
@@ -212,6 +216,28 @@ public class Phone_Verification_Activity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void checkLoginState() {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (appSharedPreference != null && appSharedPreference.getUserLoginStatus()) {
+                        if (appSharedPreference.getRegId() != null && appSharedPreference.getUserId() != null) {
+                            loginToApp();
+                        }
+                    }
+                } catch (Exception e) {
+                    ExceptionUtil.logException( e);
+                }
+            }
+        });
+    }
+    private void loginToApp() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override

@@ -13,7 +13,7 @@ public class Constant {
     public static final FirebaseStorage STORAGE = FirebaseStorage.getInstance();
     public static final StorageReference STORAGE_REFERENCE = STORAGE.getReference();
     private static final FirebaseDatabase DATABASE = FirebaseDatabase.getInstance();
-    public static final DatabaseReference USER_TABLE_REF = DATABASE.getReference("user");
+    public static final DatabaseReference USER_TABLE_REF = DATABASE.getReference("users");
     public static final DatabaseReference LEEDS_TABLE_REF = DATABASE.getReference("leeds");
     public static final DatabaseReference INVOICE_TABLE_REF = DATABASE.getReference("invoice");
     public static final String DOCUMENTS_PATH = "images/documents";
@@ -51,6 +51,13 @@ public class Constant {
     public static final String STATUS_REJECTED = "REJECTED";
     public static final String STATUS_VERIFIED = "VERIFIED";
     public static final String STATUS_SUBMITED = "SUBMITED";
+
+    public static final String STATUS_INPROCESS = "INPROCESS";
+    public static final String STATUS_LOGIN = "LOGIN";
+    public static final String STATUS_SANCTION = "SANCTION";
+    public static final String STATUS_SUBMITEFORDISBUSS = "SUBMITEFORDISBUSS";
+    public static final String STATUS_PARTIAL_DISBUSS = "PARTIAL_DISBUSS";
+    public static final String STATUS_FULL_DISBUSS = "FULLDISBUSS";
 
 
     public static final String STATUS_IN_PROGRESS = "IN-PROGRESS";

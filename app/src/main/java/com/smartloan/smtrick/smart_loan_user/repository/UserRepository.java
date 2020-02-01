@@ -25,6 +25,8 @@ public interface UserRepository {
 
     void updateUser(final User userModel, final CallBack callback);
 
+    void updateLeed(final String leedId, final Map leedsMap, final CallBack callBack);
+
     void deleteUser(final String userId, final CallBack callback);
 
     void updateUser(final String regId, final Map userMap, final CallBack callback);

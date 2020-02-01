@@ -81,7 +81,7 @@ public class AppSharedPreference {
                 editor.putString(GENDER, (user.getGender()));
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
-            }
+        }
         editor.apply();
     }
 
@@ -91,7 +91,7 @@ public class AppSharedPreference {
             if (user.getName() != null)
                 editor.putString(USERNAME, (user.getName()));
             if (user.getMobilenumber() != null)
-                editor.putString(EMAIL_ID, (user.getMobilenumber()));
+                editor.putString(MOBILE_NO, (user.getMobilenumber()));
 //            if (user.getRegId() != null)
 //                editor.putString(REG_ID, (user.getRegId()));
 //            if (user.getMobileNumber() != null)
@@ -114,6 +114,8 @@ public class AppSharedPreference {
 //                editor.putString(GENDER, (user.getGender()));
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
+            if (user.getUserid() != null)
+                editor.putString(USER_ID, (user.getUserid()));
         }
         editor.apply();
     }

@@ -16,6 +16,7 @@ import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
 import com.smartloan.smtrick.smart_loan_user.constants.Constant;
 import com.smartloan.smtrick.smart_loan_user.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan_user.models.User;
+import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.repository.FirebaseTemplateRepository;
 import com.smartloan.smtrick.smart_loan_user.repository.UserRepository;
 
@@ -96,14 +97,14 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
      */
     @Override
     public void readUser(final String userId, final CallBack callback) {
-        final Query query = Constant.USER_TABLE_REF.orderByChild("userId").equalTo(userId);
+        final Query query = Constant.USER_TABLE_REF.orderByChild("agentId").equalTo(userId);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null && dataSnapshot.getValue() != null && dataSnapshot.hasChildren()) {
                     try {
                         final DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
-                        callback.onSuccess(firstChild.getValue(User.class));
+                        callback.onSuccess(firstChild.getValue(Users.class));
                     } catch (Exception e) {
                         callback.onError(e);
                         ExceptionUtil.logException(e);
@@ -225,6 +226,23 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
         fireBaseUpdateChildren(databaseReference, userProfileMap, callback);
     }
 
+
+    @Override
+    public void updateLeed(String leedId, Map leedMap, final CallBack callBack) {
+        final DatabaseReference databaseReference = Constant.USER_TABLE_REF.child(leedId);
+        fireBaseUpdateChildren(databaseReference, leedMap, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                callBack.onSuccess(object);
+            }
+
+            @Override
+            public void onError(Object object) {
+                callBack.onError(object);
+            }
+        });
+    }
+
     /**
      * @param userId
      * @param callback
@@ -293,7 +311,7 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
                     if (dataSnapshot.getValue() != null) {
                         try {
                             if (dataSnapshot.hasChildren()) {
-                                callBack.onSuccess(dataSnapshot.getValue(User.class));
+                                callBack.onSuccess(dataSnapshot.getValue(Users.class));
                             } else {
                                 callBack.onError(null);
                             }

@@ -220,7 +220,7 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
         leedsModel.setAgentId(appSharedPreference.getAgeniId());
        // leedsModel.setAgentId(appSharedPreference.getUserId());
         leedsModel.setAgentName(appSharedPreference.getUserName());
-        leedsModel.setCreatedBy(appSharedPreference.getUserId());
+        leedsModel.setCreatedBy(appSharedPreference.getAgeniId());
         leedsModel.setStatus(STATUS_GENERATED);
        // History history = new History();
         //history.setStatus(STATUS_GENERATED);

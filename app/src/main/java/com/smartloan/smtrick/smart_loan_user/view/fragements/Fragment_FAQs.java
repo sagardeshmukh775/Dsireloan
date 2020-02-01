@@ -1,13 +1,13 @@
 package com.smartloan.smtrick.smart_loan_user.view.fragements;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
+import com.firebase.client.annotations.Nullable;
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.view.adapters.ExpandableListAdapter;
 
@@ -75,7 +75,7 @@ public class Fragment_FAQs extends Fragment {
         Lead_Generation.add("3)I have generated a lead,what next?" + "\n" + "\n" +"-> We will get the lead you generated, our staff will immediately take full information about your customer and start the loan process,the subsequent status will be updated from time to time, which will appear in 'My Leads'.");
 
         List<String> Earning_Structure = new ArrayList<String>();
-        Earning_Structure.add("1)When will I get the Payout?" + "\n" + "\n" +"-> ");
+        Earning_Structure.add("1)When will I get the Payout?" + "\n" + "\n" +"-> Once the customer completes the entire loan process and completes the delivery");
         Earning_Structure.add("2)I have a problem with a pay-out calculated,What do I do?" + "\n" + "\n" +"-> If you have any problem you can contact our customer care number, we will solve your problem as soon as possible.");
 
         List<String> Customer_Application = new ArrayList<String>();

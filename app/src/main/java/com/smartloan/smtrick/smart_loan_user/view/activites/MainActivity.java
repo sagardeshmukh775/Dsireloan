@@ -39,11 +39,12 @@ import com.smartloan.smtrick.smart_loan_user.interfaces.OnFragmentInteractionLis
 import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
+import com.smartloan.smtrick.smart_loan_user.view.fragements.AboutUs_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Invoices_TabFragment;
+import com.smartloan.smtrick.smart_loan_user.view.fragements.FAQs_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment5;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Calculator;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Contact_Us;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_FAQs;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Reports;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.InvoicesTabFragment;
 import com.squareup.picasso.Picasso;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity
         Intent intent = getIntent();
         mobile = intent.getStringExtra("mobile");
         agentId = intent.getStringExtra("agentid");
+        String id = appSharedPreference.getAgeniId();
+        String id1 = appSharedPreference.getMobileNo();
         // NOTE : Just remove the fab button
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -148,12 +151,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.Calulator) {
             fragment = new Fragment_Calculator();
         } else if (id == R.id.faq) {
-            fragment = new Fragment_FAQs();
+            fragment = new FAQs_TabFragment();
         } else if (id == R.id.ContactUs) {
             fragment = new Fragment_Contact_Us();
+        } else if (id == R.id.aboutus) {
+            fragment = new AboutUs_TabFragment();
         } else if (id == R.id.item_logout) {
             FirebaseAuth.getInstance().signOut();
             finish();
+            appSharedPreference.clear();
             Intent logout = new Intent(MainActivity.this, Phone_Verification_Activity.class);
             startActivity(logout);
             //  fragment = new Admin_Userslist_Fragment();
@@ -215,6 +221,8 @@ public class MainActivity extends AppCompatActivity
             final TextView textViewMobileNumber = (TextView) header.findViewById(R.id.textView_contact);
             ImageView imageViewProfile = (ImageView) header.findViewById(R.id.image_view_profile);
             // Button btneditprofile = (Button) header.findViewById(R.id.buttonviewprofile);
+            textViewUserName.setText(appSharedPreference.getUserName());
+            textViewMobileNumber.setText(appSharedPreference.getMobileNo());
 
             DatabaseReference Dref = FirebaseDatabase.getInstance().getReference("users");
             Dref.orderByChild("mobilenumber").equalTo(mobile).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -265,6 +273,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, UpdateProfileActivity.class);
+                    intent.putExtra("agentid",appSharedPreference.getAgeniId());
                     startActivityForResult(intent, REQUEST_CODE);
                 }
             });
