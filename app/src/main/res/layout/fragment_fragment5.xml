@@ -71,21 +71,13 @@
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/personal_loan_icon"
                         android:padding="5dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:text="Personal Loan"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="PERSONAL LOAN"/>-->
 
                 </LinearLayout>
 
@@ -105,21 +97,12 @@
                         android:layout_margin="20dp"
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/home_loan_icon"
+                        android:layout_gravity="center"
                         android:padding="5dp"
                         android:text="Home Loan"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="HOME LOAN"/>-->
 
                 </LinearLayout>
 
@@ -150,21 +133,12 @@
                         android:layout_weight="50"
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/mortgage_loan_icon"
+                        android:layout_gravity="center"
                         android:padding="5dp"
                         android:text="Morgage Loan"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="MORTGAGE LOAN"/>-->
 
                 </LinearLayout>
 
@@ -186,21 +160,12 @@
                         android:layout_weight="50"
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/topup_loan_icon"
+                        android:layout_gravity="center"
                         android:padding="5dp"
                         android:text="Top Up"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="TOP-UP LOAN"/>-->
 
                 </LinearLayout>
 
@@ -211,6 +176,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="28"
                 android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
                 android:weightSum="100">
 
                 <LinearLayout
@@ -231,21 +197,12 @@
                         android:layout_weight="50"
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/balance_tranfer_loan"
+                        android:layout_gravity="center"
                         android:padding="5dp"
                         android:text="Balance Transfer"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="BALANCE TRANSFER "/>-->
 
                 </LinearLayout>
 
@@ -267,21 +224,12 @@
                         android:layout_weight="50"
                         android:background="@color/hederbackground"
                         android:drawableTop="@drawable/doctor_loan"
+                        android:layout_gravity="center"
                         android:padding="5dp"
                         android:text="Doctor Loan"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
-
-                    <!--<TextView-->
-                    <!--android:layout_weight="8"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginBottom="3dp"-->
-                    <!--android:text="DOCTOR LOAN"/>-->
 
                 </LinearLayout>
 
