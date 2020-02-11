@@ -39,7 +39,6 @@ public class InvoicesTabFragment extends Fragment {
         viewPagerAdapter.addFragement(new InvoiceFragment_Subited_For_disbuss(), "Submited_For_disbuss");
         viewPagerAdapter.addFragement(new InvoiceFragment_Partialy_disbuss(), "Partially_disbuss");
         viewPagerAdapter.addFragement(new InvoiceFragment_Full_disbuss(), "Full_disbuss");
-
         viewPagerAdapter.addFragement(new PaidInvoiceFragment(), "Submited");
         viewPagerAdapter.addFragement(new ApprovedInvoiceFragment(), "Approved");
         viewPagerAdapter.addFragement(new RejectedInvoiceFragment(), "Rejected");

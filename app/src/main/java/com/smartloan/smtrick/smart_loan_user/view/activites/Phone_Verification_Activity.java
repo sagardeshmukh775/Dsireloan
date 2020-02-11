@@ -33,7 +33,7 @@ public class Phone_Verification_Activity extends AppCompatActivity {
     private Spinner spinner;
     private EditText editText;
     private EditText edtname;
-    private Button btnlogin;
+    private Button btnlogin,btnForgotPassword;
     private ProgressBar progressBar;
     private AppSharedPreference appSharedPreference;
 
@@ -60,6 +60,8 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         edtname = findViewById(R.id.editTextName);
 
         btnlogin = findViewById(R.id.buttonLogin);
+        btnForgotPassword = findViewById(R.id.buttonForgotPassword);
+
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

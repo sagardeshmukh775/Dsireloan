@@ -39,5 +39,8 @@
     <color name="page_indicator_default_color">#c3c3c3</color>
     <color name="page_indicator_selected_color">#ff8c00</color>
 
+    <color name="input_register">#888888</color>
+    <color name="input_register_bg">#3b4148</color>
+
     <color name="btn_logut_bg">#ff6861</color>
 </resources>

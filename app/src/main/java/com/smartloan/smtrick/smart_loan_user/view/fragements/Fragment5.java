@@ -33,7 +33,6 @@ import java.util.List;
 public class Fragment5 extends Fragment {
 
     LinearLayout sliderDotspanel;
-    private int dotscount;
     private ImageView[] dots;
     private DatabaseReference mDatabase;
 
@@ -49,7 +48,6 @@ public class Fragment5 extends Fragment {
     Context context;
     Button btnhl, btnpl, btnml, btntp, btnbt, btndl;
     ProgressBar progressBar;
-    String abcd = "abcd";
     Animation animBounce;
 
     @Override
