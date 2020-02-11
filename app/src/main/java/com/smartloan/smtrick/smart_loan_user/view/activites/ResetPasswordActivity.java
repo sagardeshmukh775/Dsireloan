@@ -20,11 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan_user.R;
-import com.smartloan.smtrick.smart_loan_user.models.User;
+import com.smartloan.smtrick.smart_loan_user.models.Users;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
-    private EditText inputNumber, inputName;
+    private EditText inputNumber;
     private Button btnReset, btnBack;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
@@ -33,7 +33,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     LinearLayout layout_Update;
     EditText inputPassword;
     Button btnUpdatePAssword;
-    User user;
+    Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reset_password);
 
         inputNumber = (EditText) findViewById(R.id.number);
-        inputName = (EditText) findViewById(R.id.name);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
         btnBack = (Button) findViewById(R.id.btn_back);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -64,20 +63,16 @@ public class ResetPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String number = inputNumber.getText().toString().trim();
-                String name = inputName.getText().toString().trim();
 
                 if (TextUtils.isEmpty(number)) {
                     Toast.makeText(getApplication(), "Enter your registered Mobile Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(name)) {
-                    Toast.makeText(getApplication(), "Enter your registered Name", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 progressBar.setVisibility(View.VISIBLE);
 
-                Query query6 = FirebaseDatabase.getInstance().getReference("user")
-                        .orderByChild("mobileNumber")
+                Query query6 = FirebaseDatabase.getInstance().getReference("users")
+                        .orderByChild("mobilenumber")
                         .equalTo(number);
 
                 query6.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -86,10 +81,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
                         if (dataSnapshot.hasChildren()) {
                             for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
-                                user = Snapshot.getValue(User.class);
+                                user = Snapshot.getValue(Users.class);
                                 if (user != null) {
                                     layout_Update.setVisibility(View.VISIBLE);
-                                    key = user.getUserId();
+                                    key = user.getUserid();
                                     progressBar.setVisibility(View.GONE);
                                 } else {
                                     Toast.makeText(ResetPasswordActivity.this, "Sorry No User Found", Toast.LENGTH_SHORT).show();

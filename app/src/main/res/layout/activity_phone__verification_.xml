@@ -145,18 +145,18 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonForgotPassword"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layoutbutton10"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/hederbackground"
-            android:text="Forgot Password?"
-            android:textAllCaps="false"
-            android:textColor="#ffffff" />
+<!--        <Button-->
+<!--            android:id="@+id/buttonForgotPassword"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/layoutbutton10"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginLeft="2dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:background="@color/hederbackground"-->
+<!--            android:text="Forgot Password?"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#ffffff" />-->
 
         <!--<CheckBox-->
         <!--android:id="@+id/terms"-->
@@ -171,7 +171,7 @@
             android:id="@+id/layouttextterms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonForgotPassword"
+            android:layout_below="@+id/layoutbutton10"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">

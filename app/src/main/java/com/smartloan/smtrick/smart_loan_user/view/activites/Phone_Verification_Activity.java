@@ -62,6 +62,14 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         btnlogin = findViewById(R.id.buttonLogin);
         btnForgotPassword = findViewById(R.id.buttonForgotPassword);
 
+//        btnForgotPassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Phone_Verification_Activity.this,ResetPasswordActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
