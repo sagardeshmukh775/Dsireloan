@@ -29,9 +29,9 @@ import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 import java.util.ArrayList;
 
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DATE_FORMATE;
-import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_SANCTION;
+import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_FULL_DISBUSS;
 
-public class InvoiceFragment_Sanction extends Fragment {
+public class Fragment_Full_disbuss extends Fragment {
     InvoiceAdapter invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
@@ -41,7 +41,7 @@ public class InvoiceFragment_Sanction extends Fragment {
     InvoiceRepository invoiceRepository;
     InvoicedialogBinding invoicedialogBinding;
 
-    public InvoiceFragment_Sanction() {
+    public Fragment_Full_disbuss() {
     }
 
     @Override
@@ -115,7 +115,7 @@ public class InvoiceFragment_Sanction extends Fragment {
         ArrayList<Invoice> arrayList = new ArrayList<>();
         if (invoiceArrayList != null) {
             for (Invoice invoice : invoiceArrayList) {
-                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_SANCTION))
+                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_FULL_DISBUSS))
                     arrayList.add(invoice);
             }
         }

@@ -33,11 +33,9 @@ public class Phone_Verification_Activity extends AppCompatActivity {
     private Spinner spinner;
     private EditText editText;
     private EditText edtname;
-    private Button btnlogin,btnForgotPassword;
+    private Button btnlogin;
     private ProgressBar progressBar;
     private AppSharedPreference appSharedPreference;
-
-    private FirebaseAuth mAuth;
 
     TextView aboutProgram;
 
@@ -51,24 +49,14 @@ public class Phone_Verification_Activity extends AppCompatActivity {
         checkLoginState();
 
         progressBar = findViewById(R.id.progressbar1);
-        mAuth = FirebaseAuth.getInstance();
 
         spinner = findViewById(R.id.spinnerCountries);
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, CountryData.countryNames));
 
         editText = findViewById(R.id.editTextPhone);
         edtname = findViewById(R.id.editTextName);
-
         btnlogin = findViewById(R.id.buttonLogin);
-        btnForgotPassword = findViewById(R.id.buttonForgotPassword);
 
-//        btnForgotPassword.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Phone_Verification_Activity.this,ResetPasswordActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override

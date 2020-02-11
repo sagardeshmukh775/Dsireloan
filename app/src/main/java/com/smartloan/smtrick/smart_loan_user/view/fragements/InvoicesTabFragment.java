@@ -31,17 +31,16 @@ public class InvoicesTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.view_pager_tab_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragement(new InvoiceFragment(), "Generated");
-
-        viewPagerAdapter.addFragement(new InvoiceFragment_Inprocess(), "In_Process");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Login(), "Login");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Sanction(), "Sanction");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Subited_For_disbuss(), "Submited_For_disbuss");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Partialy_disbuss(), "Partially_disbuss");
-        viewPagerAdapter.addFragement(new InvoiceFragment_Full_disbuss(), "Full_disbuss");
-        viewPagerAdapter.addFragement(new PaidInvoiceFragment(), "Submited");
-        viewPagerAdapter.addFragement(new ApprovedInvoiceFragment(), "Approved");
-        viewPagerAdapter.addFragement(new RejectedInvoiceFragment(), "Rejected");
+        viewPagerAdapter.addFragement(new Fragment_Generated_Leeds(), "Generated");
+        viewPagerAdapter.addFragement(new Fragment_Inprocess_Leeds(), "In_Process");
+        viewPagerAdapter.addFragement(new Fragment_Login_Leeds(), "Login");
+        viewPagerAdapter.addFragement(new Fragment_Sanction_Leeds(), "Sanction");
+        viewPagerAdapter.addFragement(new Fragment_Subited_For_disbuss(), "Submited_For_disbuss");
+        viewPagerAdapter.addFragement(new Fragment_Partialy_disbuss(), "Partially_disbuss");
+        viewPagerAdapter.addFragement(new Fragment_Full_disbuss(), "Full_disbuss");
+        viewPagerAdapter.addFragement(new Fragment_Submitted_Leeds(), "Submited");
+        viewPagerAdapter.addFragement(new Fragment_Approved_Leeds(), "Approved");
+        viewPagerAdapter.addFragement(new Fragment_Rejected_Leeds(), "Rejected");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
 //        tabLayout.setTabMode(1);

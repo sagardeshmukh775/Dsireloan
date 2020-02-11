@@ -29,9 +29,9 @@ import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 import java.util.ArrayList;
 
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DATE_FORMATE;
-import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_REJECTED;
+import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_APPROVED;
 
-public class RejectedInvoiceFragment extends Fragment {
+public class Fragment_Approved_Leeds extends Fragment {
     InvoiceAdapter invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
@@ -41,7 +41,7 @@ public class RejectedInvoiceFragment extends Fragment {
     InvoiceRepository invoiceRepository;
     InvoicedialogBinding invoicedialogBinding;
 
-    public RejectedInvoiceFragment() {
+    public Fragment_Approved_Leeds() {
     }
 
     @Override
@@ -90,7 +90,7 @@ public class RejectedInvoiceFragment extends Fragment {
 
     private void getInvoices() {
         progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-        invoiceRepository.readInvoicesByUserId(appSharedPreference.getUserId(), new CallBack() {
+        invoiceRepository.readInvoicesByUserId(appSharedPreference.getAgeniId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {
@@ -112,7 +112,7 @@ public class RejectedInvoiceFragment extends Fragment {
         ArrayList<Invoice> arrayList = new ArrayList<>();
         if (invoiceArrayList != null) {
             for (Invoice invoice : invoiceArrayList) {
-                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_REJECTED))
+                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_APPROVED))
                     arrayList.add(invoice);
             }
         }

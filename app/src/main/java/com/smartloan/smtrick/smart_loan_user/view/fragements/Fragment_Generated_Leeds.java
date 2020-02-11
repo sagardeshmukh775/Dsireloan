@@ -29,9 +29,9 @@ import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 import java.util.ArrayList;
 
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DATE_FORMATE;
-import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_APPROVED;
+import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_GENERATED;
 
-public class ApprovedInvoiceFragment extends Fragment {
+public class Fragment_Generated_Leeds extends Fragment {
     InvoiceAdapter invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
@@ -41,7 +41,7 @@ public class ApprovedInvoiceFragment extends Fragment {
     InvoiceRepository invoiceRepository;
     InvoicedialogBinding invoicedialogBinding;
 
-    public ApprovedInvoiceFragment() {
+    public Fragment_Generated_Leeds() {
     }
 
     @Override
@@ -64,6 +64,7 @@ public class ApprovedInvoiceFragment extends Fragment {
             fragmentInvoiceBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
             fragmentInvoiceBinding.recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
                     DividerItemDecoration.VERTICAL));
+
             getInvoices();
         }
         return fragmentInvoiceBinding.getRoot();
@@ -77,6 +78,7 @@ public class ApprovedInvoiceFragment extends Fragment {
         fragmentInvoiceBinding.recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), fragmentInvoiceBinding.recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
+
                 Invoice invoice = getModel(position);
                 showInvoiceDialog(invoice);
             }
@@ -96,6 +98,7 @@ public class ApprovedInvoiceFragment extends Fragment {
                 if (object != null) {
                     invoiceArrayList = (ArrayList<Invoice>) object;
                     filterList(invoiceArrayList);
+
                 }
                 progressDialogClass.dismissDialog();
             }
@@ -112,7 +115,7 @@ public class ApprovedInvoiceFragment extends Fragment {
         ArrayList<Invoice> arrayList = new ArrayList<>();
         if (invoiceArrayList != null) {
             for (Invoice invoice : invoiceArrayList) {
-                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_APPROVED))
+                if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_GENERATED))
                     arrayList.add(invoice);
             }
         }

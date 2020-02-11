@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DATE_FORMATE;
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.STATUS_INPROCESS;
 
-public class InvoiceFragment_Inprocess extends Fragment {
+public class Fragment_Inprocess_Leeds extends Fragment {
     InvoiceAdapter invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
@@ -41,7 +41,7 @@ public class InvoiceFragment_Inprocess extends Fragment {
     InvoiceRepository invoiceRepository;
     InvoicedialogBinding invoicedialogBinding;
 
-    public InvoiceFragment_Inprocess() {
+    public Fragment_Inprocess_Leeds() {
     }
 
     @Override
