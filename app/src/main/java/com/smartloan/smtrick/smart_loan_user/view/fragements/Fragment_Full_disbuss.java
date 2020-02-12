@@ -16,7 +16,7 @@ import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
 import com.smartloan.smtrick.smart_loan_user.databinding.FragmentInvoiceBinding;
 import com.smartloan.smtrick.smart_loan_user.databinding.InvoicedialogBinding;
-import com.smartloan.smtrick.smart_loan_user.models.Invoice;
+import com.smartloan.smtrick.smart_loan_user.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.recyclerListener.RecyclerTouchListener;
 import com.smartloan.smtrick.smart_loan_user.repository.InvoiceRepository;
@@ -37,7 +37,7 @@ public class Fragment_Full_disbuss extends Fragment {
     ProgressDialogClass progressDialogClass;
     AppSharedPreference appSharedPreference;
     FragmentInvoiceBinding fragmentInvoiceBinding;
-    ArrayList<Invoice> invoiceArrayList;
+    ArrayList<LeedsModel> invoiceArrayList;
     InvoiceRepository invoiceRepository;
     InvoicedialogBinding invoicedialogBinding;
 
@@ -70,7 +70,7 @@ public class Fragment_Full_disbuss extends Fragment {
         return fragmentInvoiceBinding.getRoot();
     }
 
-    private Invoice getModel(int position) {
+    private LeedsModel getModel(int position) {
         return invoiceArrayList.get(invoiceArrayList.size() - 1 - position);
     }
 
@@ -79,7 +79,7 @@ public class Fragment_Full_disbuss extends Fragment {
             @Override
             public void onClick(View view, int position) {
 
-                Invoice invoice = getModel(position);
+                LeedsModel invoice = getModel(position);
                 showInvoiceDialog(invoice);
             }
 
@@ -96,7 +96,7 @@ public class Fragment_Full_disbuss extends Fragment {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {
-                    invoiceArrayList = (ArrayList<Invoice>) object;
+                    invoiceArrayList = (ArrayList<LeedsModel>) object;
                     filterList(invoiceArrayList);
 
                 }
@@ -111,10 +111,10 @@ public class Fragment_Full_disbuss extends Fragment {
         });
     }
 
-    private void filterList(ArrayList<Invoice> invoiceArrayList) {
-        ArrayList<Invoice> arrayList = new ArrayList<>();
+    private void filterList(ArrayList<LeedsModel> invoiceArrayList) {
+        ArrayList<LeedsModel> arrayList = new ArrayList<>();
         if (invoiceArrayList != null) {
-            for (Invoice invoice : invoiceArrayList) {
+            for (LeedsModel invoice : invoiceArrayList) {
                 if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_FULL_DISBUSS))
                     arrayList.add(invoice);
             }
@@ -122,21 +122,21 @@ public class Fragment_Full_disbuss extends Fragment {
         serAdapter(arrayList);
     }
 
-    private void serAdapter(ArrayList<Invoice> invoiceArrayList) {
+    private void serAdapter(ArrayList<LeedsModel> invoiceArrayList) {
         if (invoiceArrayList != null) {
             if (invoiceAdapter == null) {
                 invoiceAdapter = new InvoiceAdapter(getActivity(), invoiceArrayList);
                 fragmentInvoiceBinding.recyclerView.setAdapter(invoiceAdapter);
                 onClickListner();
             } else {
-                ArrayList<Invoice> arrayList = new ArrayList<>();
+                ArrayList<LeedsModel> arrayList = new ArrayList<>();
                 arrayList.addAll(invoiceArrayList);
                 invoiceAdapter.reload(arrayList);
             }
         }
     }
 
-    private void showInvoiceDialog(Invoice invoice) {
+    private void showInvoiceDialog(LeedsModel invoice) {
         final Dialog dialog = new Dialog(getActivity());
         invoicedialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.invoicedialog, null, false);
         dialog.setContentView(invoicedialogBinding.getRoot());

@@ -19,6 +19,7 @@ import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
 import com.smartloan.smtrick.smart_loan_user.databinding.FragmentInvoiceBinding;
 import com.smartloan.smtrick.smart_loan_user.databinding.InvoicedialogBinding;
 import com.smartloan.smtrick.smart_loan_user.models.Invoice;
+import com.smartloan.smtrick.smart_loan_user.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.recyclerListener.RecyclerTouchListener;
 import com.smartloan.smtrick.smart_loan_user.repository.InvoiceRepository;
@@ -28,7 +29,7 @@ import com.smartloan.smtrick.smart_loan_user.repository.impl.LeedRepositoryImpl;
 import com.smartloan.smtrick.smart_loan_user.singleton.AppSingleton;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 import com.smartloan.smtrick.smart_loan_user.view.activites.Invoice_Details_Activity;
-import com.smartloan.smtrick.smart_loan_user.view.adapters.InvoiceAdapter;
+import com.smartloan.smtrick.smart_loan_user.view.adapters.InvoiceAdapter1;
 import com.smartloan.smtrick.smart_loan_user.view.dialog.ProgressDialogClass;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ import static com.smartloan.smtrick.smart_loan_user.constants.Constant.GLOBAL_DA
 import static com.smartloan.smtrick.smart_loan_user.constants.Constant.INVICES_LEEDS;
 
 public class Invoices_Fragment_Payed extends Fragment {
-    InvoiceAdapter invoiceAdapter;
+    InvoiceAdapter1 invoiceAdapter;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
     AppSharedPreference appSharedPreference;
@@ -101,92 +102,92 @@ public class Invoices_Fragment_Payed extends Fragment {
                 }
 
             }));
-        }catch (Exception e){
-            Log.e("ex",e.getMessage());
+        } catch (Exception e) {
+            Log.e("ex", e.getMessage());
         }
-        }
+    }
 
-        private void getInvoices () {
-            String userid = appSharedPreference.getAgeniId();
+    private void getInvoices() {
+        String userid = appSharedPreference.getAgeniId();
 
-            //     invoiceArrayList.clear();
-            progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-            invoiceRepository.readInvoicesByAgentId(userid, new CallBack() {
-                @Override
-                public void onSuccess(Object object) {
-                    if (object != null) {
-                        invoiceArrayList = (ArrayList<Invoice>) object;
+        //     invoiceArrayList.clear();
+        progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
+        invoiceRepository.readInvoicesByAgentId(userid, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    invoiceArrayList = (ArrayList<Invoice>) object;
 
-                        for (int i = 0; i < invoiceArrayList.size(); i++) {
-                            Invoice in = invoiceArrayList.get(i);
-                            if (in.getStatus().equalsIgnoreCase("PAID")) {
-                                invoiceArrayList1.add(in);
-                            }
+                    for (int i = 0; i < invoiceArrayList.size(); i++) {
+                        Invoice in = invoiceArrayList.get(i);
+                        if (in.getStatus().equalsIgnoreCase("PAID")) {
+                            invoiceArrayList1.add(in);
                         }
-                        filterList(invoiceArrayList1);
                     }
-                    progressDialogClass.dismissDialog();
+                    filterList(invoiceArrayList1);
                 }
-
-                @Override
-                public void onError(Object object) {
-                    progressDialogClass.dismissDialog();
-                    Utility.showLongMessage(getActivity(), getString(R.string.server_error));
-                }
-            });
-        }
-
-
-        private void filterList (ArrayList < Invoice > invoiceArrayList) {
-            ArrayList<Invoice> arrayList = new ArrayList<>();
-            if (invoiceArrayList != null) {
-                for (Invoice invoice : invoiceArrayList) {
-                    // if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_SENT))
-                    arrayList.add(invoice);
-                }
+                progressDialogClass.dismissDialog();
             }
-            serAdapter(arrayList);
-        }
 
-        private void serAdapter (ArrayList < Invoice > invoiceArrayList) {
-            if (invoiceArrayList != null) {
-                if (invoiceAdapter == null) {
-                    invoiceAdapter = new InvoiceAdapter(getActivity(), invoiceArrayList);
-                    fragmentInvoiceBinding.recyclerView.setAdapter(invoiceAdapter);
-                    onClickListner();
-                } else {
-                    ArrayList<Invoice> arrayList = new ArrayList<>();
-                    arrayList.addAll(invoiceArrayList);
-                    invoiceAdapter.reload(arrayList);
-                }
+            @Override
+            public void onError(Object object) {
+                progressDialogClass.dismissDialog();
+                Utility.showLongMessage(getActivity(), getString(R.string.server_error));
+            }
+        });
+    }
+
+
+    private void filterList(ArrayList<Invoice> invoiceArrayList) {
+        ArrayList<Invoice> arrayList = new ArrayList<>();
+        if (invoiceArrayList != null) {
+            for (Invoice invoice : invoiceArrayList) {
+                // if (!Utility.isEmptyOrNull(invoice.getStatus()) && invoice.getStatus().equalsIgnoreCase(STATUS_SENT))
+                arrayList.add(invoice);
             }
         }
+        serAdapter(arrayList);
+    }
 
-        private void showInvoiceDialog (Invoice invoice){
-            final Dialog dialog = new Dialog(getActivity());
-            invoicedialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.invoicedialog, null, false);
-            dialog.setContentView(invoicedialogBinding.getRoot());
-            dialog.setTitle("Title...");
-            invoicedialogBinding.txtleadidvalue.setText(invoice.getLeedNumber());
-            invoicedialogBinding.txtcnamevalue.setText(invoice.getCustomerName());
-            invoicedialogBinding.txtccontactvalue.setText(invoice.getMobileNumber());
-            invoicedialogBinding.txtcaddressvalue.setText(invoice.getAddress());
-            invoicedialogBinding.txtloantyprvalue.setText(invoice.getLoanType());
-            invoicedialogBinding.txtdatevalue.setText(Utility.convertMilliSecondsToFormatedDate(invoice.getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE));
+    private void serAdapter(ArrayList<Invoice> invoiceArrayList) {
+        if (invoiceArrayList != null) {
+            if (invoiceAdapter == null) {
+                invoiceAdapter = new InvoiceAdapter1(getActivity(), invoiceArrayList);
+                fragmentInvoiceBinding.recyclerView.setAdapter(invoiceAdapter);
+                onClickListner();
+            } else {
+                ArrayList<Invoice> arrayList = new ArrayList<>();
+                arrayList.addAll(invoiceArrayList);
+                invoiceAdapter.reload(arrayList);
+            }
+        }
+    }
 
-            invoicedialogBinding.dialogButtonaccept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+    private void showInvoiceDialog(LeedsModel invoice) {
+        final Dialog dialog = new Dialog(getActivity());
+        invoicedialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.invoicedialog, null, false);
+        dialog.setContentView(invoicedialogBinding.getRoot());
+        dialog.setTitle("Title...");
+        invoicedialogBinding.txtleadidvalue.setText(invoice.getLeedNumber());
+        invoicedialogBinding.txtcnamevalue.setText(invoice.getCustomerName());
+        invoicedialogBinding.txtccontactvalue.setText(invoice.getMobileNumber());
+        invoicedialogBinding.txtcaddressvalue.setText(invoice.getAddress());
+        invoicedialogBinding.txtloantyprvalue.setText(invoice.getLoanType());
+        invoicedialogBinding.txtdatevalue.setText(Utility.convertMilliSecondsToFormatedDate(invoice.getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE));
 
-                    dialog.dismiss();
-                }
-            });
+        invoicedialogBinding.dialogButtonaccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+            }
+        });
        /* invoicedialogBinding.dialogButtonreject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });*/
-            dialog.show();
-        }
+        dialog.show();
     }
+}

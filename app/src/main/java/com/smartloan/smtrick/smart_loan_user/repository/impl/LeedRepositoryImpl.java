@@ -7,7 +7,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.smartloan.smtrick.smart_loan_user.callback.CallBack;
 import com.smartloan.smtrick.smart_loan_user.constants.Constant;
-import com.smartloan.smtrick.smart_loan_user.models.Invoice;
 import com.smartloan.smtrick.smart_loan_user.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan_user.repository.FirebaseTemplateRepository;
 import com.smartloan.smtrick.smart_loan_user.repository.LeedRepository;
@@ -130,9 +129,9 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
                 if (object != null) {
                     DataSnapshot dataSnapshot = (DataSnapshot) object;
                     if (dataSnapshot.getValue() != null & dataSnapshot.hasChildren()) {
-                        ArrayList<Invoice> leedsModelArrayList = new ArrayList<>();
+                        ArrayList<LeedsModel> leedsModelArrayList = new ArrayList<>();
                         for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()) {
-                            Invoice leedsModel = suggestionSnapshot.getValue(Invoice.class);
+                            LeedsModel leedsModel = suggestionSnapshot.getValue(LeedsModel.class);
                             leedsModelArrayList.add(leedsModel);
                         }
                         callBack.onSuccess(leedsModelArrayList);
