@@ -55,6 +55,7 @@ public class Constant {
     public static final String STATUS_INPROCESS = "INPROCESS";
     public static final String STATUS_LOGIN = "LOGIN";
     public static final String STATUS_SANCTION = "SANCTION";
+    public static final String STATUS_DOCPICKUP = "DOCUMENTS";
     public static final String STATUS_SUBMITEFORDISBUSS = "SUBMITEFORDISBUSS";
     public static final String STATUS_PARTIAL_DISBUSS = "PARTIAL_DISBUSS";
     public static final String STATUS_FULL_DISBUSS = "FULLDISBUSS";

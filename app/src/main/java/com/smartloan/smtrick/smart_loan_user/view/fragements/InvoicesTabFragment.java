@@ -33,13 +33,14 @@ public class InvoicesTabFragment extends Fragment {
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPagerAdapter.addFragement(new Fragment_Generated_Leeds(), "Generated");
         viewPagerAdapter.addFragement(new Fragment_Inprocess_Leeds(), "In_Process");
+        viewPagerAdapter.addFragement(new Fragment_Dock_pickup_Leeds(), "Dock_Pickup");
         viewPagerAdapter.addFragement(new Fragment_Login_Leeds(), "Login");
         viewPagerAdapter.addFragement(new Fragment_Sanction_Leeds(), "Sanction");
         viewPagerAdapter.addFragement(new Fragment_Subited_For_disbuss(), "Submited_For_disbuss");
         viewPagerAdapter.addFragement(new Fragment_Partialy_disbuss(), "Partially_disbuss");
         viewPagerAdapter.addFragement(new Fragment_Full_disbuss(), "Full_disbuss");
-        viewPagerAdapter.addFragement(new Fragment_Submitted_Leeds(), "Submited");
-        viewPagerAdapter.addFragement(new Fragment_Approved_Leeds(), "Approved");
+//        viewPagerAdapter.addFragement(new Fragment_Submitted_Leeds(), "Submited");
+//        viewPagerAdapter.addFragement(new Fragment_Approved_Leeds(), "Approved");
         viewPagerAdapter.addFragement(new Fragment_Rejected_Leeds(), "Rejected");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
