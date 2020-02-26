@@ -46,7 +46,7 @@ public class LeedRepositoryImpl extends FirebaseTemplateRepository implements Le
 
     @Override
     public void readLeedsByUserIdReport(final Context context, String userId, final CallBack callBack) {
-        final Query query = Constant.LEEDS_TABLE_REF.orderByChild("createdBy").equalTo(userId);
+        final Query query = Constant.LEEDS_TABLE_REF.orderByChild("agentId").equalTo(userId);
         fireBaseNotifyChange(query, new CallBack() {
             @Override
             public void onSuccess(Object object) {

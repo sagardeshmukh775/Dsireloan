@@ -118,7 +118,9 @@ public class Fragment_Reports extends Fragment {
     private void serAdapter(ArrayList<LeedsModel> leedsModels) {
         setReports(leedsModels);
         if (leedsModels != null) {
-            if (reportLeedsAdapter == null) {
+            if (
+                    reportLeedsAdapter == null) {
+
                 reportLeedsAdapter = new ReportLeedsAdapter(getActivity(), leedsModels);
                 fragmentReportBinding.recyclerViewLeeds.setAdapter(reportLeedsAdapter);
                 onClickListner();
@@ -139,8 +141,8 @@ public class Fragment_Reports extends Fragment {
                 if (!Utility.isEmptyOrNull(leedsModel.getStatus())) {
                     if (leedsModel.getStatus().equalsIgnoreCase(STATUS_APPROVED)) {
                         approvedCount++;
-                        if (!Utility.isEmptyOrNull(leedsModel.getPayout()))
-                            totalPayout += Double.valueOf(leedsModel.getPayout());
+                        if (!Utility.isEmptyOrNull(leedsModel.getApprovedLoan()))
+                            totalPayout += Double.valueOf(leedsModel.getApprovedLoan());
                     } else if (leedsModel.getStatus().equalsIgnoreCase(STATUS_REJECTED)) {
                         rejectedCount++;
                     }
@@ -149,12 +151,12 @@ public class Fragment_Reports extends Fragment {
             fragmentReportBinding.textViewTotalLeadsCount.setText(String.valueOf(leedsModelArrayList.size()));
             fragmentReportBinding.textViewApprovedLeadsCount.setText(String.valueOf(approvedCount));
             fragmentReportBinding.textViewRejectedLeadsCount.setText(String.valueOf(rejectedCount));
-           // fragmentReportBinding.textViewPayoutAmount.setText(String.valueOf(totalPayout));
+            fragmentReportBinding.textViewTotalAmountValue.setText(String.valueOf(totalPayout));
         } else {
             fragmentReportBinding.textViewTotalLeadsCount.setText("0");
             fragmentReportBinding.textViewApprovedLeadsCount.setText("0");
             fragmentReportBinding.textViewRejectedLeadsCount.setText("0");
-            //fragmentReportBinding.textViewPayoutAmount.setText("0.0");
+            fragmentReportBinding.textViewTotalAmountValue.setText("0.0");
         }
     }
 
