@@ -219,6 +219,7 @@ public class MainActivity extends AppCompatActivity
             final TextView textViewUserName = (TextView) header.findViewById(R.id.textView_user_name);
             TextView textViewEmailId = (TextView) header.findViewById(R.id.text_view_email);
             final TextView textViewMobileNumber = (TextView) header.findViewById(R.id.textView_contact);
+            final TextView textViewViewProfile = (TextView) header.findViewById(R.id.textView_view);
             ImageView imageViewProfile = (ImageView) header.findViewById(R.id.image_view_profile);
             // Button btneditprofile = (Button) header.findViewById(R.id.buttonviewprofile);
             textViewUserName.setText(appSharedPreference.getUserName());
@@ -269,7 +270,7 @@ public class MainActivity extends AppCompatActivity
                 textViewMobileNumber.setText(user.getPhoneNumber());
             }
 
-            textViewMobileNumber.setOnClickListener(new View.OnClickListener() {
+            textViewViewProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, UpdateProfileActivity.class);

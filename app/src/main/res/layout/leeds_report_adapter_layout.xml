@@ -70,6 +70,14 @@
                     android:textSize="14dp" />
 
                 <TextView
+                    android:id="@+id/txt_approved_ammount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Approved:"
+                    android:textColor="@color/darkgraycolor"
+                    android:textSize="14dp" />
+
+                <TextView
                     android:id="@+id/txt_agent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,8 +113,8 @@
                     android:id="@+id/txt_id_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Id:"
                     android:singleLine="true"
+                    android:text="Id:"
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
 
@@ -114,8 +122,8 @@
                     android:id="@+id/txtcnamevalue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C Name:"
                     android:singleLine="true"
+                    android:text="C Name:"
 
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
@@ -124,8 +132,8 @@
                     android:id="@+id/txt_bank_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank:"
                     android:singleLine="true"
+                    android:text="Bank:"
 
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
@@ -134,8 +142,8 @@
                     android:id="@+id/txt_loan_type_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LAP"
                     android:singleLine="true"
+                    android:text="LAP"
 
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
@@ -144,9 +152,18 @@
                     android:id="@+id/txt_amount_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2000000"
                     android:singleLine="true"
+                    android:text="2000000"
 
+                    android:textColor="@color/whitetextcolor"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txt_approved_amount_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="2000000"
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
 
@@ -154,8 +171,8 @@
                     android:id="@+id/txt_agent_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="AJ2211"
                     android:singleLine="true"
+                    android:text="AJ2211"
 
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
@@ -164,8 +181,8 @@
                     android:id="@+id/txt_date_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="23/08/2018"
                     android:singleLine="true"
+                    android:text="23/08/2018"
 
                     android:textColor="@color/whitetextcolor"
                     android:textSize="14dp" />
@@ -174,8 +191,8 @@
                     android:id="@+id/txt_status_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sent"
                     android:singleLine="true"
+                    android:text="Sent"
                     android:textColor="@color/yello"
                     android:textSize="14dp" />
 

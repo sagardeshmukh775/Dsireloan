@@ -41,34 +41,47 @@ public class ReportLeedsAdapter extends RecyclerView.Adapter<LeedsViewHolder> {
     public void onBindViewHolder(final LeedsViewHolder holder, final int listPosition) {
         try {
             LeedsModel leedModel = getModel(listPosition);
+
             if (!Utility.isEmptyOrNull(leedModel.getLeedNumber()))
                 holder.txtLeedId.setText(leedModel.getLeedNumber());
             else
                 holder.txtLeedId.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getCustomerName()))
                 holder.txtCustomerName.setText(leedModel.getCustomerName());
             else
                 holder.txtCustomerName.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getBankName()))
                 holder.txtBank.setText(leedModel.getBankName());
             else
                 holder.txtBank.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getExpectedLoanAmount()))
                 holder.txtTotalAmount.setText(leedModel.getExpectedLoanAmount());
             else
                 holder.txtTotalAmount.setText(getString(R.string.na));
+
+            if (!Utility.isEmptyOrNull(leedModel.getApprovedLoan()))
+                holder.txtTotalApprovedAmount.setText(leedModel.getApprovedLoan());
+            else
+                holder.txtTotalApprovedAmount.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getAgentId()))
                 holder.txtAgentID.setText(leedModel.getAgentId());
             else
                 holder.txtAgentID.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getStatus()))
                 holder.txtStatus.setText(leedModel.getStatus());
             else
                 holder.txtStatus.setText(getString(R.string.na));
+
             if (!Utility.isEmptyOrNull(leedModel.getLoanType()))
                 holder.txtLoanType.setText(leedModel.getLoanType());
             else
                 holder.txtLoanType.setText(getString(R.string.na));
+
             if (leedModel.getCreatedDateTimeLong() > 0)
                 holder.txtDate.setText(Utility.convertMilliSecondsToFormatedDate(leedModel.getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE));
             else
