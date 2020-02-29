@@ -67,6 +67,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:background="@drawable/circle"
+
+
+
                         android:drawableTop="@drawable/personal_loan_icon"
                         android:padding="15dp"
                         android:gravity="center_horizontal|top"
