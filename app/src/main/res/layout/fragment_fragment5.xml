@@ -69,7 +69,7 @@
                         android:background="@drawable/circle"
                         android:drawableTop="@drawable/personal_loan_icon"
                         android:padding="15dp"
-                        android:gravity="center"
+                        android:gravity="center_horizontal|top"
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/white"
@@ -211,8 +211,10 @@
                         android:layout_weight="50"
                         android:background="@drawable/circle"
                         android:drawableTop="@drawable/balance_tranfer_loan"
-                        android:layout_gravity="center"
-                        android:padding="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
@@ -243,8 +245,9 @@
                         android:background="@drawable/circle"
                         android:drawableTop="@drawable/doctor_loan"
                         android:layout_gravity="center"
-                        android:padding="15dp"
-                        android:textColor="@color/white"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"                        android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
 
