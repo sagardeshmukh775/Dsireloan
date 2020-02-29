@@ -55,54 +55,62 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
                         android:id="@+id/btn_pl"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:background="@color/hederbackground"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/personal_loan_icon"
-                        android:padding="5dp"
+                        android:padding="15dp"
                         android:gravity="center"
                         android:layout_gravity="center"
-                        android:text="Personal Loan"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Loan"
+                        android:layout_marginTop="-20dp"
+                        android:gravity="center"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btn_hl"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:background="@color/hederbackground"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/home_loan_icon"
                         android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:text="Home Loan"
+                        android:padding="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="Home Loan"
+                        android:gravity="center"/>
 
                 </LinearLayout>
 
@@ -117,55 +125,63 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
                         android:id="@+id/btn_ml"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="50"
-                        android:background="@color/hederbackground"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/mortgage_loan_icon"
                         android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:text="Morgage Loan"
+                        android:padding="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="Morgage Loan"
+                        android:gravity="center"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
                         android:id="@+id/btn_tp"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="50"
-                        android:background="@color/hederbackground"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/topup_loan_icon"
                         android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:text="Top Up"
+                        android:padding="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="Top Up"
+                        android:gravity="center"/>
 
                 </LinearLayout>
 
@@ -176,60 +192,68 @@
                 android:layout_height="match_parent"
                 android:layout_weight="28"
                 android:orientation="horizontal"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:weightSum="100">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2.5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
                         android:id="@+id/btn_bt"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="50"
-                        android:background="@color/hederbackground"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/balance_tranfer_loan"
                         android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:text="Balance Transfer"
+                        android:padding="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="Balance Transfer"
+                        android:gravity="center"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:layout_weight="50"
-                    android:background="@color/hederbackground"
                     android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
                         android:id="@+id/btn_dl"
-                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_margin="20dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="50"
-                        android:background="@color/hederbackground"
+                        android:background="@drawable/circle"
                         android:drawableTop="@drawable/doctor_loan"
                         android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:text="Doctor Loan"
+                        android:padding="15dp"
                         android:textColor="@color/white"
                         android:scaleX=".75"
                         android:scaleY=".75"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="Doctor Loan"
+                        android:gravity="center"/>
 
                 </LinearLayout>
 
