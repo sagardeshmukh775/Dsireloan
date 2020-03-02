@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan_user.models.Upload;
-import com.smartloan.smtrick.smart_loan_user.view.activites.Constants;
+import com.smartloan.smtrick.smart_loan_user.constants.Constants;
 import com.smartloan.smtrick.smart_loan_user.view.adapters.ImageAdapter;
 
 import java.util.ArrayList;

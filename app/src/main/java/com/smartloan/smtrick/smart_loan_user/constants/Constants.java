@@ -1,4 +1,4 @@
-package com.smartloan.smtrick.smart_loan_user.view.activites;
+package com.smartloan.smtrick.smart_loan_user.constants;
 
 /**
  * Created by Belal on 2/23/2017.

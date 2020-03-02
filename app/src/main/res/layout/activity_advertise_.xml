@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".view.activites.Advertise_Activity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="@color/colorPrimaryDark"
+        app:popupTheme="@style/Theme.AppCompat.Light.NoActionBar" />
+
     <ScrollView
         android:id="@+id/scrollviewrightleft"
         android:layout_width="match_parent"
@@ -65,14 +73,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/deleteadd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:background="@color/hederbackground"
-                android:text="Delete Add" />
+<!--            <Button-->
+<!--                android:id="@+id/deleteadd"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:background="@color/hederbackground"-->
+<!--                android:text="Delete Add" />-->
 
             </LinearLayout>
 

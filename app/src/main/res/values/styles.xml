@@ -62,4 +62,8 @@
         <item name="colorControlActivated">@color/hederbackground</item>
     </style>
 
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>
