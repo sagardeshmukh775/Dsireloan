@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -22,9 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.smartloan.smtrick.smart_loan_user.R;
+import com.smartloan.smtrick.smart_loan_user.constants.Constants;
 import com.smartloan.smtrick.smart_loan_user.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan_user.models.Upload;
-import com.smartloan.smtrick.smart_loan_user.constants.Constants;
 import com.smartloan.smtrick.smart_loan_user.view.adapters.ImageAdapter;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class Fragment5 extends Fragment {
     }
 
     Context context;
-    Button btnhl, btnpl, btnml, btntp, btnbt, btndl;
+    ImageView imgPL, imgHL, imgML, imgTUL, imgBTL, imgDL;
     ProgressBar progressBar;
     Animation animBounce;
 
@@ -79,15 +78,15 @@ public class Fragment5 extends Fragment {
             mListener.onFragmentInteraction("Select Loan Type");
         }
 
-        btnpl = (Button) view.findViewById(R.id.btn_pl);
-        btnhl = (Button) view.findViewById(R.id.btn_hl);
-        btnml = (Button) view.findViewById(R.id.btn_ml);
-        btntp = (Button) view.findViewById(R.id.btn_tp);
-        btnbt = (Button) view.findViewById(R.id.btn_bt);
-        btndl = (Button) view.findViewById(R.id.btn_dl);
+        imgPL = (ImageView) view.findViewById(R.id.personal_loan);
+        imgHL = (ImageView) view.findViewById(R.id.Home_loan);
+        imgML = (ImageView) view.findViewById(R.id.Morgage_loan);
+        imgTUL = (ImageView) view.findViewById(R.id.Top_up_loan);
+        imgBTL = (ImageView) view.findViewById(R.id.balance_trancefer_loan);
+        imgDL = (ImageView) view.findViewById(R.id.doctor_loan);
 
 
-        btnpl.setOnClickListener(new View.OnClickListener() {
+        imgPL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -97,7 +96,7 @@ public class Fragment5 extends Fragment {
             }
         });
 
-        btnhl.setOnClickListener(new View.OnClickListener() {
+        imgHL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -106,7 +105,7 @@ public class Fragment5 extends Fragment {
 
             }
         });
-        btnml.setOnClickListener(new View.OnClickListener() {
+        imgML.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -117,7 +116,7 @@ public class Fragment5 extends Fragment {
         });
 
 
-        btntp.setOnClickListener(new View.OnClickListener() {
+        imgTUL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -128,7 +127,7 @@ public class Fragment5 extends Fragment {
         });
 
 
-        btnbt.setOnClickListener(new View.OnClickListener() {
+        imgBTL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -137,7 +136,7 @@ public class Fragment5 extends Fragment {
 
             }
         });
-        btndl.setOnClickListener(new View.OnClickListener() {
+        imgDL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
