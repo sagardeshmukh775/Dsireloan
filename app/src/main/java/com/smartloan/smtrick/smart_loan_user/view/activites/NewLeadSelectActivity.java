@@ -5,27 +5,28 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.InvoicesTabFragment;
 
 public class NewLeadSelectActivity extends AppCompatActivity {
     Button btnAccept;
-    Button btnhl,btnpl,btnml,btntp,btnbt,btndl;
+    ImageView imgPL, imgHL, imgML, imgTUL, imgBTL, imgDL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terms_condition_);
 
-        btnhl = (Button)findViewById(R.id.btn_hl);
-        btnpl = (Button)findViewById(R.id.btn_pl);
-        btnml = (Button)findViewById(R.id.btn_ml);
-        btntp = (Button)findViewById(R.id.btn_tp);
-        btnbt = (Button)findViewById(R.id.btn_bt);
-        btndl = (Button)findViewById(R.id.btn_dl);
+        imgPL = (ImageView) findViewById(R.id.personal_loan);
+        imgHL = (ImageView) findViewById(R.id.Home_loan);
+        imgML = (ImageView) findViewById(R.id.Morgage_loan);
+        imgTUL = (ImageView) findViewById(R.id.Top_up_loan);
+        imgBTL = (ImageView) findViewById(R.id.balance_trancefer_loan);
+        imgDL = (ImageView) findViewById(R.id.doctor_loan);
 
 
-        btnhl.setOnClickListener(new View.OnClickListener() {
+        imgHL.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Intent i = new Intent(NewLeadSelectActivity.this, InvoicesTabFragment.class);

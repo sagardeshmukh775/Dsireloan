@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import com.smartloan.smtrick.smart_loan_user.R;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_GenerateLeads;
@@ -15,7 +15,7 @@ import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_GenerateLe
 
 public class NewLeadActivity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener{
-    Button btnhl,btnpl,btnml,btntp,btnbt,btndl;
+    ImageView imgPL, imgHL, imgML, imgTUL, imgBTL, imgDL;
 
 
     @Override
@@ -25,14 +25,14 @@ public class NewLeadActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnpl = (Button) findViewById(R.id.btn_pl);
-        btnhl = (Button) findViewById(R.id.btn_hl);
-        btnml = (Button) findViewById(R.id.btn_ml);
-        btntp = (Button) findViewById(R.id.btn_tp);
-        btnbt = (Button) findViewById(R.id.btn_bt);
-        btndl = (Button) findViewById(R.id.btn_dl);
+        imgPL = (ImageView) findViewById(R.id.personal_loan);
+        imgHL = (ImageView) findViewById(R.id.Home_loan);
+        imgML = (ImageView) findViewById(R.id.Morgage_loan);
+        imgTUL = (ImageView) findViewById(R.id.Top_up_loan);
+        imgBTL = (ImageView) findViewById(R.id.balance_trancefer_loan);
+        imgDL = (ImageView) findViewById(R.id.doctor_loan);
 
-        btnpl.setOnClickListener(new View.OnClickListener() {
+        imgPL.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
 
