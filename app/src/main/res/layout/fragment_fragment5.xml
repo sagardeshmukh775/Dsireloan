@@ -98,7 +98,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle_hl"
                         android:padding="10dp"
                         app:srcCompat="@drawable/home_loan_icon" />
 
@@ -127,7 +127,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle_ml"
                         android:padding="10dp"
                         app:srcCompat="@drawable/mortgage_loan_icon" />
 
@@ -166,7 +166,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle_tu"
                         android:padding="10dp"
                         app:srcCompat="@drawable/topup_loan_icon" />
 
@@ -195,7 +195,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle_bt"
                         android:padding="10dp"
                         app:srcCompat="@drawable/balance_tranfer_loan" />
 
@@ -225,7 +225,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle_dl"
                         android:padding="10dp"
                         app:srcCompat="@drawable/doctor_loan" />
 
