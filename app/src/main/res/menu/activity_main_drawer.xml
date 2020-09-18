@@ -28,13 +28,13 @@
             android:textColor="@color/textcolor"
             android:textStyle="normal|bold" />
 
-        <item
-            android:id="@+id/invoice"
-            android:icon="@drawable/invoices"
-            android:title="My Earnings"
-            android:textSize="22sp"
-            android:textColor="@color/textcolor"
-            android:textStyle="normal|bold"/>
+<!--        <item-->
+<!--            android:id="@+id/invoice"-->
+<!--            android:icon="@drawable/invoices"-->
+<!--            android:title="My Earnings"-->
+<!--            android:textSize="22sp"-->
+<!--            android:textColor="@color/textcolor"-->
+<!--            android:textStyle="normal|bold"/>-->
 
         <item
             android:id="@+id/Calulator"

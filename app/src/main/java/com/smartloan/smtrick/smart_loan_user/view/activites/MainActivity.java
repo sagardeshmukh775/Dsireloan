@@ -40,7 +40,6 @@ import com.smartloan.smtrick.smart_loan_user.models.Users;
 import com.smartloan.smtrick.smart_loan_user.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan_user.utilities.Utility;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.AboutUs_TabFragment;
-import com.smartloan.smtrick.smart_loan_user.view.fragements.Admin_Invoices_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.FAQs_TabFragment;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment5;
 import com.smartloan.smtrick.smart_loan_user.view.fragements.Fragment_Calculator;
@@ -173,9 +172,9 @@ public class MainActivity extends AppCompatActivity
 //        else if (id == R.id.offers) {
 //            fragment = new Fragment_image_upload();
 //        }
-        else if (id == R.id.invoice) {
-            fragment = new Admin_Invoices_TabFragment();
-        }
+//        else if (id == R.id.invoice) {
+//            fragment = new Admin_Invoices_TabFragment();
+//        }
 //        else if (id == R.id.admininvoice) {
 //            fragment = new Admin1_Invoices_TabFragment();
 //        }
