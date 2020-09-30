@@ -37,7 +37,7 @@ public class InvoicesTabFragment extends Fragment {
         viewPagerAdapter.addFragement(new Fragment_Login_Leeds(), "Login");
         viewPagerAdapter.addFragement(new Fragment_Sanction_Leeds(), "Sanction");
         viewPagerAdapter.addFragement(new Fragment_Subited_For_disbuss(), "Submited_For_disbuss");
-        viewPagerAdapter.addFragement(new Fragment_Partialy_disbuss(), "Partially_disbuss");
+        viewPagerAdapter.addFragement(new Fragment_Partialy_disbuss(), "Partly_disbuss");
         viewPagerAdapter.addFragement(new Fragment_Full_disbuss(), "Full_disbuss");
 //        viewPagerAdapter.addFragement(new Fragment_Submitted_Leeds(), "Submited");
 //        viewPagerAdapter.addFragement(new Fragment_Approved_Leeds(), "Approved");

@@ -172,7 +172,8 @@ public class MainActivity extends AppCompatActivity
 //        else if (id == R.id.offers) {
 //            fragment = new Fragment_image_upload();
 //        }
-//        else if (id == R.id.invoice) {
+//        else
+//        if (id == R.id.invoice) {
 //            fragment = new Admin_Invoices_TabFragment();
 //        }
 //        else if (id == R.id.admininvoice) {
